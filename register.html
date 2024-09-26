@@ -1,85 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register & Login</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar-se dejavu</title>
+    <link rel="stylesheet" href="assets/css/register.css" />
+    <script type="module" src="assets/js/firebaseauth.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="firebaseauth.js"></script>
-</head>
-<body>
-    <div class="container" id="signup" style="display:none;">
-      <h1 class="form-title">Register</h1>
-      <form method="post" action="">
-        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
-        <div class="input-group">
-           <i class="fas fa-user"></i>
-           <input type="text"  id="fName" placeholder="First Name" required>
-           <label for="fname">First Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text"  id="lName" placeholder="Last Name" required>
-            <label for="lName">Last Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email"  id="rEmail" placeholder="Email" required>
-            <label for="rEmail">Email</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="rPassword"  placeholder="Password" required>
-            <label for="rPassword">Password</label>
-        </div>
-       <button class="btn" id="submitSignUp" >Sign Up</button>
-      </form>
-      <p class="or">
-        ----------or--------
-      </p>
-      <div class="icons">
-        <i class="fab fa-google"></i>
-        <!--<i class="fab fa-facebook"></i>-->
-      </div>
-      <div class="links">
-        <p>Already Have Account ?</p>
-        <button id="signInButton">Sign In</button>
-      </div>
-    </div>
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form action="register.html" autocomplete="off" class="sign-in-form">
+              <div class="logo">
+                <img src="assets/img/dejavu-logo.jpg" alt="easyclass" />
+                <h4>DEJAVU</h4>
+              </div>
 
-  <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <form method="post" action="">
-          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+              <div class="heading">
+                <h2>Olá</h2>
+                <h6>Ainda não está cadastrado?</h6>
+                <a href="#" class="toggle">cadastrar-se</a>
+              </div>
 
-          <div class="input-group">
-              <i class="fas fa-envelope"></i>
-              <input type="email"  id="email" placeholder="Email" required>
-              <label for="email">Email</label>
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Nome</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Senha</label>
+                </div>
+
+                <input type="submit" value="Entrar" class="sign-btn" />
+
+                <p class="text">
+                  Esqueceu sua senha ou seus dados de login?
+                  <a href="#">Ajuda-me</a>
+                </p>
+              </div>
+            </form>
+
+            <form action="register.html" autocomplete="off" class="sign-up-form">
+              <div class="logo">
+                <img src="assets/img/dejavu-logo.jpg" alt="easyclass" />
+                <h4>DEJAVU</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Vamos Começar</h2>
+                <h6>Ja possui uma conta?</h6>
+                <a href="#" class="toggle">Entre</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Nome</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Senha</label>
+                </div>
+
+                <input type="submit" value="Cadastrar-se" class="sign-btn" />
+
+                <p class="text">
+                  Ao me inscrever, concordo com os 
+                  <a href="#">Termos de Serviço</a> e
+                  <a href="#">Política de Privacidade</a>
+                </p>
+              </div>
+            </form>
           </div>
-          <div class="input-group">
-              <i class="fas fa-lock"></i>
-            <input type="password" id="password"  placeholder="Password" required>
-              <label for="password">Password</label>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img src="assets/img/image1.png" class="image img-1 show" alt="" />
+              <img src="assets/img/image2.png" class="image img-2" alt="" />
+              <img src="assets/img/image3.png" class="image img-3" alt="" />
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Organize seu tempo</h2>
+                  <h2>Faça do seu jeito e no seu tempo</h2>
+                  <h2>Use o dejavu</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
           </div>
-          <p class="recover">
-            <a href="#">Recover Password</a>
-          </p>
-         <button  class="btn"  id="submitSignIn">Sign In</button>
-        </form>
-        <p class="or">
-          ----------or--------
-        </p>
-        <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
-        </div>
-        <div class="links">
-          <p>Don't have account yet?</p>
-          <button id="signUpButton">Sign Up</button>
         </div>
       </div>
-      <script src="script.js"></script>
-</body>
+    </main>
+
+    <!-- Javascript file -->
+
+    <script src="assets/js/register.js"></script>
+  </body>
 </html>
