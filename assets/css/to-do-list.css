@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .calendar-day {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 2px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    line-height: 30px;
+} */
+
+.calendar-day {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin: 2px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.calendar-day.empty {
+    border: none;
+}
+
+.calendar-day:hover {
+    background-color: #d4edda;
+}
+
+button {
+    margin: 5px;
+}
+
+.category-filters {
+    margin-bottom: 20px;
+}
+
+.category-filters button {
+    margin-right: 5px;
+    padding: 10px;
+    background-color: #612f68;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.category-filters button:hover {
+    background-color: #8c1fe6;
+}
+
+
+
+
+
+li {
+    background: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    flex-grow: 1;
+}
+
+li button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #1b191b;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+li button:hover {
+    background-color: #92759b;
+}
+
+.button-group {
+    display: flex;
+    gap: 5px; /* Controla o espaçamento entre os botões */
+}
