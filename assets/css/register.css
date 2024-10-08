@@ -81,17 +81,18 @@ form.sign-up-form {
 .logo img {
   width: 27px;
   margin-right: 0.3rem;
+  margin-bottom:8px;
 }
 
 .logo h4 {
-  font-size: 1.1rem;
+  font-size: 25px;
   margin-top: -9px;
   letter-spacing: -0.5px;
   color: #593B7D;
 }
 
-.heading h2 {
-  font-size: 2.1rem;
+.heading h3 {
+  font-size: 1.8rem;
   font-weight: 600;
   color: #151111;
 }
@@ -104,7 +105,7 @@ form.sign-up-form {
 }
 
 .toggle {
-  color: #151111;
+  color: #593B7D;
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 500;
@@ -118,7 +119,7 @@ form.sign-up-form {
 .input-wrap {
   position: relative;
   height: 37px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .input-field {
@@ -165,28 +166,49 @@ label {
   cursor: pointer;
   border-radius: 0.8rem;
   font-size: 0.8rem;
-  margin-bottom: 2rem;
-  transition: 0.3s;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  transition: 0.7s;
 }
-
 .sign-btn:hover {
-  background-color: #000000;
+  background-color: #ad74f3;
 }
-
+.btn-google{
+  display: inline-block;
+  width: 100%;
+  height: 43px;
+  background-color: #ffffff;
+  color: #fff;
+  border-color: #593B7D;
+  border: 1px solid #593B7D;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  transition: 0.3s; 
+}
+#google-img{
+  width: 45px;
+}
 .text {
   color: #bbb;
   font-size: 0.7rem;
 }
 
 .text a {
-  color: #bbb;
-  transition: 0.3s;
+  color: #593B7D;
+  transition: 0.5s;
 }
 
 .text a:hover {
-  color: #8371fd;
+  color: #ad74f3;
 }
-
+#lbl-help{
+  color: #593B7D;
+  font-size: 12px;
+  margin-left: 140px;
+  text-decoration: none;
+}
 main.sign-up-mode form.sign-in-form {
   opacity: 0;
   pointer-events: none;
@@ -207,50 +229,54 @@ main.sign-up-mode .carousel {
 
 .carousel {
   position: absolute;
-  height: 100%;
-  width: 55%;
-  left: 45%;
+  height: 100%; 
+  width: 55%; 
+  left: 45%; 
   top: 0;
-  background-color: #593B7D;
-  border-radius: 2rem;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding-bottom: 2rem;
-  overflow: hidden;
-  transition: 0.8s ease-in-out;
+  background-color: #593B7D; /* Cor de fundo */
+  border-radius: 2rem; /* Borda arredondada */
+  display: grid; /* Usando grid layout */
+  grid-template-rows: auto 1fr; 
+  padding-bottom: 2rem; 
+  overflow: hidden; /* Esconde conteúdo que sai dos limites do contêiner */
+  transition: 0.8s ease-in-out; /* Transição suave ao trocar elementos */
 }
 
 .images-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: grid; /* Mantém um layout em grid */
+  grid-template-columns: 1fr; 
   grid-template-rows: 1fr;
+  /* Não é necessário overflow aqui pois será gerido pelas transições */
 }
 
 .image {
-  width: 100%;
-  grid-column: 1/2;
-  grid-row: 1/2;
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.5s;
+  width: 100%; /* Imagem ocupa toda a largura do contêiner */
+  grid-column: 1/2; /* Coloca todas as imagens na mesma coluna */
+  grid-row: 1/2; /* Coloca todas as imagens na mesma linha */
+  opacity: 0; /* Imagem inicial não visível */
+  transition: opacity 0.3s, transform 0.5s; /* Transição suave de opacidade e transformação */
 }
 
 .img-1 {
-  transform: translate(0, -50px);
+  transform: translate(0, -50px); /* Desloca a primeira imagem para cima quando invisível */
 }
 
 .img-2 {
-  transform: scale(0.4, 0.5);
+  transform: scale(0.4, 0.5); /* Segunda imagem com escala reduzida inicialmente */
+  width: 400px;
+  margin-left: 60px;
 }
 
 .img-3 {
-  transform: scale(0.3) rotate(-20deg);
+  width: 300px;
+  margin-left: 120px; /* Terceira imagem rotacionada e com menor escala inicialmente */
+  margin-top: 100px;
 }
 
 .image.show {
-  opacity: 1;
-  transform: none;
+  opacity: 1; /* Quando ativa, a imagem torna-se visível */
+  transform: none; /* Remove as transformações quando a imagem está ativa */
 }
-
 .text-slider {
   display: flex;
   align-items: center;
@@ -276,6 +302,7 @@ main.sign-up-mode .carousel {
   line-height: 2.2rem;
   font-weight: 600;
   font-size: 1.6rem;
+  color: #ffffff;
 }
 
 .bullets {
@@ -288,7 +315,7 @@ main.sign-up-mode .carousel {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #aaa;
+  background-color: #ffffff;
   margin: 0 0.25rem;
   border-radius: 50%;
   cursor: pointer;
@@ -297,7 +324,7 @@ main.sign-up-mode .carousel {
 
 .bullets span.active {
   width: 1.1rem;
-  background-color: #151111;
+  background-color: #ffffff;
   border-radius: 1rem;
 }
 
