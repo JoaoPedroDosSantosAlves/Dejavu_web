@@ -82,12 +82,17 @@ body {
 .register-button {
     background-color: #593B7D;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 12px;
     font-family: var(--font-roboto);
     font-size: 16px;
     padding: 8px 20px;
     text-decoration: none;
     transition: background-color 0.3s;
+    width: 256px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .register-button:hover {
@@ -101,7 +106,8 @@ body {
         backdrop-filter: blur(10px);
     }
 }
-.logo-img-sidebar{
+
+.logo-img-sidebar {
     margin-right: 20px;
 }
 
@@ -118,11 +124,14 @@ body {
     max-width: 50%;
 }
 
-.content h1 {
-    font-size: 2.5rem;
+.title {
+    font-family: var(--font-roboto);
+    position: relative;
+    font-size: 64px;
     color: black;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
     line-height: 1.2;
+    margin-left: 100px;
 }
 
 .buttons {
@@ -131,63 +140,274 @@ body {
 }
 
 .button {
+    width: 284px;
+    height: 50px;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 8px;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .primary {
-    background-color: #5d3eaf;
+    font-family: var(--font-roboto);
+    background-color: #593B7D;
     color: white;
+    margin-left: 100px;
 }
 
 .primary:hover {
-    background-color: #4b2e91;
+    background-color: #A67AB9;
+    color: #674188;
 }
 
 .secondary {
+    font-family: var(--font-roboto);
     background-color: #e0c9f7;
     color: #5d3eaf;
+    text-decoration: none;
 }
 
 .secondary:hover {
     background-color: #d1b3f4;
     color: #4b2e91;
-    text-decoration: underline;
 }
 
 .image-container img {
     max-width: 100%;
     height: auto;
-    margin-top: 40px;
-    margin-right: 44px;
+    margin-right: 100px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Responsividade */
-@media (max-width: 932px) {
+.content {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1230px) {
+    .title {
+        margin-left: 20px;
+    }
+
+    .primary {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .title {
+        margin-left: 0px;
+    }
+
+    .primary {
+        margin-left: 0px;
+    }
+}
+
+/* Para telas médias (tablets ou telas menores) */
+@media (max-width: 991px) {
     .hero-section {
         flex-direction: column;
         text-align: center;
     }
 
-    .image-container img {
-        width: auto;
-        
+    .title {
+        color: black;
+        margin-bottom: 30px;
+        margin-top: -40px;
+        font-weight: 605;
+        line-height: 1.2;
+        font-size: 64px;
+        margin-left: 50px;
+        margin-bottom: 80px;
     }
-
-   .content h1 {
-        font-size: 24px;
-    }
-    
 
     .content {
-        max-width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .image-container {
-        max-width: 80%;
+        max-width: 90%;
+        margin-top: 80px;
+        margin-left: 120px;
+        display: none;
     }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .primary {
+        margin-left: 0;
+    }
+
 }
+
+/* Para telas pequenas (celulares) */
+@media (max-width: 768px) {
+    .title {
+        font-size: 56px;
+        margin-left: 20px;
+        margin-bottom: 60px;
+    }
+
+    .content {
+        margin-bottom: 10px;
+    }
+
+    .image-container {
+        max-width: 100%;
+        margin-top: 80px;
+        margin-left: 100px;
+        display: none;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .primary {
+        margin-left: 0;
+    }
+
+
+}
+
+/* Para telas muito pequenas (smartphones) */
+@media (max-width: 576px) {
+    .title {
+        font-size: 48px;
+        margin-left: 10px;
+        margin-bottom: 40px;
+    }
+
+    .content {
+        margin-bottom: 5px;
+    }
+
+    .image-container {
+        max-width: 100%;
+        margin-top: 80px;
+        display: none;
+    }
+
+    .button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .primary {
+        margin-left: 0;
+    }
+
+}
+
+/* Carrosel ou Slider */
+
+
+.slider {
+    width: 100%; 
+    max-width: 900px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    margin: 0 auto; 
+  }
+  
+  .slides {
+    width: 400%; 
+    height: 100%; 
+    display: flex;
+    transition: margin-left 0.5s ease; 
+  }
+  
+  .slides input {
+    display: none;
+  }
+  
+  .slide {
+    width: 25%; 
+    transition: 2s;
+  }
+  
+  .slide img {
+    width: 100%; 
+    height: auto; 
+  }
+  
+  
+  
+  #radio1:checked ~ .first {
+    margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first {
+    margin-left: -25%; 
+  }
+  
+  #radio3:checked ~ .first {
+    margin-left: -50%; 
+  }
+  
+  #radio4:checked ~ .first {
+    margin-left: -75%; 
+  }
+  
+  /* CSS para navegação automática */
+  
+  .navigation-auto {
+    position: absolute;
+    top: 95%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex; 
+  }
+  
+  .navigation-auto div {
+    border: 2px solid #593B7D;
+    padding: 4px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  
+  .navigation-auto div:not(:last-child) {
+    margin-right: 20px; 
+  }
+  
+  #radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: #593B7D;
+  }
+  
+  #radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: #593B7D;
+  }
+  
+  #radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: #593B7D;
+  }
+  
+  #radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: #593B7D;
+  }
