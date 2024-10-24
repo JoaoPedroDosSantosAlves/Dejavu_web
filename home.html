@@ -3,48 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Home</title>
     <link rel="stylesheet" href="assets/css/home.css">
+
 </head>
 <body>
-    <div class="sidebar">
-        <div class="profile">
-            <img src="profile-icon.png" alt="Perfil">
-            <span>Jiovanna</span>
+   
+    <div id="overlay"></div>
+    <nav id="sidebar">
+        <div class="burger-menu" onclick="toggleMenu()">
+            <img src="assets/img/Icon.svg" alt="abrir/fechar barra lateral">
         </div>
-        <button class="add-card">Adicionar novo cartão</button>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Calendário</a></li>
-                <li><a href="#">Biblioteca</a></li>
-            </ul>
-        </nav>
-        <button class="add-house">Adicionar nova casa</button>
-    </div>
+        <ul>
+            <li><a href="#">
+                <img src="assets/img/home.svg" alt="">
+                <span>Home</span>
+            </a></li>
+            <li><a href="#">
+                <img src="assets/img/calendario.svg" alt="">
+                <span>Calendário</span>
+            </a></li>
+            <li><a href="#">
+                <img src="assets/img/biblioteca.svg" alt="">
+                <span>Biblioteca</span>
+            </a></li>
+            <li><a href="#">Adicionar nova casa</a></li>
+        </ul>
+    </nav>
 
     <div class="content">
         <h1>Cartão</h1>
-        <div class="card-container">
+        <div class="cards">
             <div class="card">
-                <img src="bedroom.jpg" alt="Quarto">
+                <img src="assets/img/foto-home1.png" alt="Quarto">
                 <h2>Quarto</h2>
-                <a href="#">Ver tarefas →</a>
+                <a href="#">Ver tarefas</a>
             </div>
             <div class="card">
-                <img src="bathroom.jpg" alt="Banheiro">
+                <img src="assets/img/foto-home1.png" alt="Banheiro">
                 <h2>Banheiro</h2>
-                <a href="#">Ver tarefas →</a>
+                <a href="#">Ver tarefas</a>
             </div>
             <div class="card">
-                <img src="kitchen.jpg" alt="Cozinha">
-                <h2>Quarto</h2>
-                <a href="#">Ver tarefas →</a>
+                <img src="assets/img/foto-home1.png" alt="Cozinha">
+                <h2>Cozinha</h2>
+                <a href="#">Ver tarefas</a>
             </div>
             <div class="add-card">
-                <button>+ Adicionar</button>
+                <button>+ Adicionar Cartão</button>
             </div>
         </div>
     </div>
-</body>
+
+    </body>
 </html>
