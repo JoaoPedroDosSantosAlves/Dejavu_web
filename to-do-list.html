@@ -3,42 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/to-do-list.css">
+    <link rel="stylesheet" href="css/to-do-list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Lista de Tarefas</title>
+   
 </head>
 <body>
     <div class="container">
+        <button class="back-button" onclick="window.location.href='teste.html';">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        
         <h1>Lista de Tarefas</h1>
         <form id="task-form">
             <input type="text" id="task-input" placeholder="Nova tarefa" required>
             <input type="date" id="date-input" placeholder="Data">
             <input type="time" id="start-time-input" placeholder="Hora de Início">
             <input type="time" id="end-time-input" placeholder="Hora de Término">
-            <select id="category-select">
-                <option value="pessoal">Pessoal</option>
-                <option value="trabalho">Trabalho</option>
-                <option value="fitness">Fitness</option>
-                <option value="saude">Saúde</option>
-                <option value="compras">Compras</option>
-                <option value="financeiro">Financeiro</option>
-            </select>
             <button type="submit">Adicionar</button>
         </form>
-        
-        <div class="category-filters">
-            <button onclick="filterTasks('todas')">Todas</button>
-            <button onclick="filterTasks('pessoal')">Pessoal</button>
-            <button onclick="filterTasks('trabalho')">Trabalho</button>
-            <button onclick="filterTasks('fitness')">Fitness</button>
-            <button onclick="filterTasks('saude')">Saúde</button>
-            <button onclick="filterTasks('compras')">Compras</button>
-            <button onclick="filterTasks('financeiro')">Financeiro</button>
-        </div>
 
         <ul id="task-list"></ul>
-        <a href="calendar.html">Ver Calendário</a>
     </div>
-    <script src="assets/js/to-do-list.js"></script>
+    <script src="js/to-do-list.js"></script>
 </body>
 </html>
-

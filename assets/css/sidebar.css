@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#logo-main {
+    color: rgb(216, 117, 216);
+    font-weight: bold;
+    font-size: 38px;
+    text-shadow: 2px 2px 0 rgba(104, 0, 107, 0.5);
+    margin-top: 10px;
+}
+
+.sidebar {
+    background-color: #f2f2f2;
+    width: 70px;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    transition: max-height 0.3s ease, opacity 0.3s ease; 
+    overflow: hidden;
+    max-height: 100%; 
+    opacity: 1;
+}
+
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #b1b1b1;
+    margin: 30px 0; 
+    margin-top: 70px;
+}
+
+.sidebar button i {
+    color: #b1b1b1;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar button.active i {
+    color: rgb(143, 143, 143); 
+}
+
+
+
+
+/* Estilos para responsividade */
+.hamburger {
+display: none; 
+font-size: 30px;
+cursor: pointer;
+position: fixed;
+top: 10px;
+right: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+    }
+
+    #logo-main {
+        margin-right: 350px;
+    }
+
+    .menu {
+        margin-right: 350px; 
+    }
+
+    .sidebar {
+        width: 100%; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        max-height: 0; 
+        opacity: 0; 
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        background-color: white; 
+        z-index: 1000; 
+    }
+
+    .sidebar button{
+        margin: 10px 0; 
+    }
+
+    .sidebar.active {
+        max-height: 250px; 
+        opacity: 1;
+    }
+
+    .hamburger {
+        display: block; 
+        z-index: 1001; 
+        margin-right: 20px;
+        margin-top: 15px;
+    }
+
+    .add-task-button{
+        width: 25%;
+        margin-left: 20px;
+    }
+}

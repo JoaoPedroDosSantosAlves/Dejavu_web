@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/to-do-list.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <title>Calendário de Tarefas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+   
+    
     <div class="container">
-        <h1>Calendário de Tarefas</h1>
-        <div id="calendar"></div>
-        <a href="to-do-list.html">Voltar para a lista de tarefas</a>
+        <div class="sidebar">
+            <button id="logo-main">D</button>
+            <div class="menu">
+                <a href="teste.html"><button class="nav-button"><i class="fas fa-home"></i></button></a>
+                <a href="calendar.html"><button class="nav-button"><i class="fas fa-calendar-alt"></i></button></a>
+                <button class="nav-button"><i class="fas fa-bars"></i></button>
+                <button class="nav-button"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+
+        <div class="main">
+            <h1>Calendário de Tarefas</h1>
+            <div class="week-header">
+                <div class="calendar-day">Dom</div>
+                <div class="calendar-day">Seg</div>
+                <div class="calendar-day">Ter</div>
+                <div class="calendar-day">Qua</div>
+                <div class="calendar-day">Qui</div>
+                <div class="calendar-day">Sex</div>
+                <div class="calendar-day">Sab</div>
+            </div>
+            <div id="calendar"></div>
+        </div>
     </div>
-    <script src="assets/js/calendar.js"></script>
+
+    <div class="hamburger" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <script src="js/calendar.js"></script>
 </body>
 </html>
