@@ -1,103 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');*/
 
-:root{
-    margin: 20px 20px 20px 20px;
-    padding: 40px 40px 40px 40px;
-    border: 1px solid black;
-    border-radius: 25px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    padding: 2% 0% 0% 2%;   
-}
-
-.home_header{
+body {
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 80px;
-    font-family: "Inter Tight", sans-serif;
-    font-size: 24px;
-    text-decoration: none;
+    height: 100vh;
 }
 
-.home_header_logo{
-    width: 113px;
-    height: 37px;
-}
-
-.home_header_nav{
-    display: flex;
-    gap: 100px;  
-}
-
-.home_header_user{
-    width: 70px;
-    height: 70px;
-}
-
-main{
-    padding: 2% 0% 0% 2%;
-}
-
-.home_main{
-    width: 80%;
-    margin: 0 auto;
+.sidebar {
+    background-color: #F5F5F5;
+    width: 250px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.home_main1{
+.profile {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 10px;
 }
 
-.home_main1_text{
-    font-family: "Inter Tight", sans-serif;
-    font-size: 30px;
-    font-weight: 400;
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.add-card,
+.add-house {
+    background-color: #FFF;
+    border: 1px dashed #999;
+    padding: 10px;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+}
+
+.add-card {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
     text-decoration: none;
+    color: #333;
 }
 
-.home_main1_button{
-    border: 2px solid;
-    border-radius: 8px;    
-    padding: 25px 90px;
-    font-family: "Inter Tight", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
+.content {
+    flex-grow: 1;
+    padding: 40px;
 }
 
-.home_main2{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: flex;
     gap: 20px;
-    padding: 20px;
 }
 
-.home_main2_button {
+.card {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.card a {
+    color: #8A4FFF;
+    text-decoration: none;
+}
+
+.add-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    color: black;
-    text-decoration: none;
-    border: 2px solid #ddd;
+    height: 200px;
+    width: 200px;
+    border: 2px dashed #8A4FFF;
     border-radius: 10px;
-    font-family: "Inter Tight", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    width: 300px;
-    height: 130px;
-    transition: background-color 0.3s ease;
-    margin: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.home_main2_button:hover {
-    background-color: #ddd;
-    border-color: #ccc;
+.add-card:hover {
+    background-color: #F0F0FF;
 }
