@@ -1,0 +1,52 @@
+.footer {
+    background-color: #e7c3f8;/* Tom de roxo */
+    color: rgb(71, 43, 124);
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%; /* Largura total para desktop */
+    max-width: 1600px; /* Largura máxima para desktop */
+    margin-top: 70px;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+    
+    margin-top: 30px;
+}
+
+.footer-content h2 {
+    margin-bottom: 10px;
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-media li {
+    margin: 0 10px;
+}
+
+.social-media a {
+    color: rgb(71, 43, 124);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+   
+}
+
+@media (max-width: 768px) {
+    .social-media {
+        flex-direction: column;
+    }
+
+    .social-media li {
+        margin: 5px 0;
+    }
+}
