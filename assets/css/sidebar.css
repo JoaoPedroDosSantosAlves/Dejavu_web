@@ -17,7 +17,7 @@ body {
     margin-top: 10px;
 }
 
-.sidebar {
+/* .sidebar {
     background-color: #f2f2f2;
     width: 70px;
     position: fixed;
@@ -31,7 +31,22 @@ body {
     overflow: hidden;
     max-height: 100%; 
     opacity: 1;
+} */
+
+
+.sidebar {
+    background-color: #f2f2f2;
+    width: 70px;
+    height: 100vh;
+    position: fixed;
+    left: 0; /* Fixa a sidebar à esquerda da tela */
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
 }
+
 
 .sidebar .menu {
     display: flex;

@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/library.css">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <H1>teste teste 123</H1>
+    <div class="container">
+        <div class="sidebar">
+            <button id="logo-main">D</button>
+            <div class="menu">
+                <a href="home.html"><button class="nav-button"><i class="fas fa-home"></i></button></a>
+                <a href="calendar.html"><button class="nav-button"><i class="fas fa-calendar-alt"></i></button></a>
+                <a href="library.html"><button class="nav-button"><i class="fas fa-bars"></i></button></a>
+                <a href="index.html"><button class="nav-button"><i class="fas fa-sign-out-alt"></i></button></a>
+            </div>
+        </div>
+
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="assets/img/imagem1.jpg" alt="Imagem 1">
+            </div>
+            <div class="slide fade">
+                <img src="assets/img/imagem2.jpg" alt="Imagem 2">
+            </div>
+            <div class="slide fade">
+                <img src="assets/img/imagem3.jpg" alt="Imagem 3">
+            </div>
+        </div>
+
+        <!-- Biblioteca de Recursos -->
+        <section class="biblioteca">
+            <h2>Guias e Dicas de Produtividade</h2>
+
+            <!-- Acordeão -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Estratégias de Organização</h3>
+                    <div class="accordion-content">
+                        <p>Explore métodos como o GTD (Getting Things Done), Matriz de Eisenhower, e técnica Pomodoro para ajudar na organização pessoal.</p>
+                        <img src="assets/img/imagem1.jpg" alt="Estratégias de organização">
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Dicas de Priorização</h3>
+                    <div class="accordion-content">
+                        <p>Saiba como definir tarefas mais urgentes e importantes usando a matriz de priorização e técnicas de análise de impacto.</p>
+                        <img src="assets/img/imagem2.jpg" alt="Dicas de priorização">
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Modelos de Lista de Tarefas</h3>
+                    <div class="accordion-content">
+                        <p>Use listas para categorias como Saúde, Financeiro, e Estudos. Estes modelos ajudam a estruturar e focar melhor as suas atividades.</p>
+                        <img src="assets/img/imagem3.jpg" alt="Modelos de listas de tarefas">
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Ferramentas de Produtividade</h3>
+                    <div class="accordion-content">
+                        <p>Explore ferramentas como Trello, Notion, e Google Calendar para ajudar no gerenciamento de tarefas e organização do tempo.</p>
+                        <img src="assets/img/imagem1.jpg" alt="Ferramentas de produtividade">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="assets/js/library.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 </body>
 </html>
