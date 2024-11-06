@@ -1,29 +1,16 @@
-// Slideshow automático
 let slideIndex = 0;
-showSlides();
+const slides = document.querySelectorAll('.slide');
 
-function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Muda a cada 3 segundos
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
 }
 
-// Acordeão (caixas expansivas)
-const accordionItems = document.querySelectorAll('.accordion-item');
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+}
 
-accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
-        const content = item.querySelector('.accordion-content');
-        const isOpen = content.style.display === 'block';
-        // Fecha todos os conteúdos
-        document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-        // Abre ou fecha o conteúdo atual
-        content.style.display = isOpen ? 'none' : 'block';
-    });
-});
+setInterval(nextSlide, 3000); // Altere o valor para ajustar o intervalo do slide (em milissegundos)
+showSlide(slideIndex);
