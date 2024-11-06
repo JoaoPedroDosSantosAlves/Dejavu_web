@@ -36,7 +36,7 @@ body {
 
 .sidebar {
     background-color: #f1efef;
-    width: 70px;
+    width: 120px;
     height: 100vh;
     position: fixed;
     left: 0; /* Fixa a sidebar à esquerda da tela */
@@ -47,32 +47,71 @@ body {
     padding-top: 20px;
 }
 
+.menu{
+    margin-top: 30px;
+}
+
+.menu a{
+    text-decoration: none;
+}
 
 .sidebar .menu {
     display: flex;
     flex-direction: column;
 }
 
-.sidebar button {
+/* .sidebar button {
     background-color: transparent;
     border: none;
     font-size: 24px;
     color: #b1b1b1;
     margin: 30px 0; 
     margin-top: 70px;
+} */
+
+
+
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #b1b1b1;
+    margin: 30px 0;
+    cursor: pointer;
 }
 
 .sidebar button i {
+    margin-right: 10px;
+    color: #b1b1b1;
+    font-size: 22px;
+}
+
+/* .sidebar button i {
     color: #b1b1b1;
     font-size: 22px;
     cursor: pointer;
-}
+} */
 
 .sidebar button.active i {
     color: rgb(143, 143, 143); 
 }
 
 
+
+
+.sidebar button span {
+    font-size: 16px;
+    color: #b1b1b1;
+    display: inline-block;
+}
+
+.sidebar button.active i,
+.sidebar button.active span {
+    color: rgb(143, 143, 143);
+}
 
 
 /* Estilos para responsividade */
@@ -95,11 +134,17 @@ right: 10px;
     }
 
     .menu {
-        margin-right: 350px; 
+        margin-right: 280px;
+        margin-top: 5px;
+    
+    }
+    .menu a{
+        text-decoration: none;
     }
 
     .sidebar {
-        width: 100%; 
+        width: 100%;
+       
         position: fixed; 
         top: 0; 
         left: 0; 
