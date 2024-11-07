@@ -1,7 +1,4 @@
-    body {
-        margin: 0;
-        font-family: sans-serif;
-    }
+
 
  
 
@@ -53,16 +50,17 @@
 }
 
 .week-header .calendar-day {
-    background-color: #e0e0e0; 
+    background-color: #e2afff; 
     font-weight: normal; 
     height: 25px; 
     flex: 1; 
     text-align: center; 
     margin: 5px 3px;
+    color: white;
 }
 
 .calendar-day:hover {
-    background-color: #e0e0e0;
+    background-color: #e2afff;
     transform: scale(1.05);
 }
 
