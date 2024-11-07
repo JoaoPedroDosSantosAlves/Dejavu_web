@@ -17,21 +17,6 @@ body {
     margin-top: 10px;
 }
 
-/* .sidebar {
-    background-color: #f2f2f2;
-    width: 70px;
-    position: fixed;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-    transition: max-height 0.3s ease, opacity 0.3s ease; 
-    overflow: hidden;
-    max-height: 100%; 
-    opacity: 1;
-} */
 
 
 .sidebar {
@@ -61,16 +46,6 @@ body {
     flex-direction: column;
 }
 
-/* .sidebar button {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    color: #b1b1b1;
-    margin: 30px 0; 
-    margin-top: 70px;
-} */
-
-
 
 
 .sidebar button {
@@ -90,16 +65,10 @@ body {
     font-size: 22px;
 }
 
-/* .sidebar button i {
-    color: #b1b1b1;
-    font-size: 22px;
-    cursor: pointer;
-} */
 
 .sidebar button.active i {
     color: rgb(143, 143, 143); 
 }
-
 
 
 
