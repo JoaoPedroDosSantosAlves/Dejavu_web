@@ -84,9 +84,15 @@ function changeMonth(direction) {
 }
 
 function showTasks(tasks) {
-    const taskList = tasks.map(task => 
-        `<li>${task.name} ${task.startTime ? `de ${task.startTime}` : ''} ${task.endTime ? `a ${task.endTime}` : ''}</li>`
-    ).join('');
+    // Gerar uma lista formatada de tarefas
+    const taskList = tasks.map((task, index) => {
+        return `${index + 1}. ${task.name} ${task.startTime ? `de ${task.startTime}` : ''} ${task.endTime ? `a ${task.endTime}` : ''}`;
+    }).join('\n'); // Usando '\n' para separar cada tarefa com uma nova linha
+
+    // Mostrar a lista de tarefas no console de forma amigável
+    console.log(`%cTarefas do dia:\n${taskList}`, 'color: #2196F3; font-weight: bold; font-size: 20px;');
+    
+    // Exibir o alerta com as tarefas formatadas
     alert(`Tarefas do dia:\n${taskList}`);
 }
 
