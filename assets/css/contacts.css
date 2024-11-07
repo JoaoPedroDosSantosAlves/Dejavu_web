@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --font-roboto: 'Roboto', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+/*body {
+    background: #fff;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+.text-section,
+.text-section2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    margin-top: 80px;
+}
+
+.title-2,
+.title-3 {
+    font-family: var(--font-roboto);
+    position: relative;
+    font-size: 28px;
+    color: #808080;
+    line-height: 1.2;
+    margin-left: 100px;
+}
+
+.image-section img,
+.image-section2 img {
+    width: 500px;
+    height: auto;
+    margin-right: 0;
+    margin-left: 1000px;
+    margin-top: -300px;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.content {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: black;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #593B7D;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.login-button {
+    border-radius: 5px;
+    font-family: var(--font-roboto);
+    font-size: 16px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.login-button:hover {
+    background-color: #d3d3d3;
+    font-weight: 500;
+    color: black;
+}
+
+.register-button {
+    background-color: #593B7D;
+    color: #fff;
+    border-radius: 12px;
+    font-family: var(--font-roboto);
+    font-size: 16px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 256px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-button:hover {
+    background-color: #A67AB9;
+    color: #674188;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.logo-img-sidebar {
+    margin-right: 20px;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.hero-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 50px;
+    /* Margem para separar o carrossel da navbar */
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos do carrossel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    /* Altera o fundo do carrossel */
+    padding: 20px 0;
+    /* Espaçamento interno */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.membro {
+    min-width: 300px;
+    margin: 10px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.membro .foto {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.nome {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Botões de navegação */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 100;
+    user-select: none;
+}
+
+.carousel-nav.left {
+    left: 10px;
+    background-color: rgba(89, 59, 125, 0.7);
+    /* 70% opaco */
+
+
+}
+
+.carousel-nav.right {
+    right: 10px;
+    background-color: rgba(89, 59, 125, 0.7);
+    /* 70% opaco */
+
+}
+
+.carousel-nav:hover {
+    background-color: #A67AB9;
+}
+
+/* Responsividade */
+
+@media (max-width: 1230px) {
+
+    .title-2,
+    .title-3 {
+        margin-left: 20px;
+    }
+
+    .image-section img,
+    .image-section2 img {
+        margin-right: 0;
+        width: 400px;
+        height: auto;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .title-2,
+    .title-3 {
+        margin-left: 0px;
+    }
+
+    .image-section img,
+    .image-section2 img {
+        width: 350px;
+        height: auto;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .text-section,
+    .text-section2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title-2,
+    .title-3 {
+        margin-left: 50px;
+    }
+
+    .image-section img,
+    .image-section2 img {
+        margin-right: 0;
+        width: 300px;
+        height: auto;
+        margin-top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .membro {
+        min-width: 200px;
+    }
+
+    .membro .foto {
+        width: 100px;
+    }
+
+    .title-2,
+    .title-3 {
+        margin-left: 50px;
+    }
+
+    .description,
+    .description-2 {
+        margin-left: 50px;
+    }
+
+    .image-section img,
+    .image-section2 img {
+        margin-right: 0;
+        width: 300px;
+        height: auto;
+        margin-top: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .membro {
+        min-width: 150px;
+    }
+
+    .membro .foto {
+        width: 80px;
+    }
+
+    .title-2,
+    .title-3 {
+        margin-left: 10px;
+    }
+
+    .image-section img,
+    .image-section2 img {
+        margin-right: 0;
+        width: 250px;
+        height: auto;
+        margin-top: auto;
+    }
+}
