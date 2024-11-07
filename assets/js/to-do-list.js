@@ -3,10 +3,8 @@ const taskInput = document.getElementById('task-input');
 const dateInput = document.getElementById('date-input');
 const startTimeInput = document.getElementById('start-time-input');
 const endTimeInput = document.getElementById('end-time-input');
-const categorySelect = document.getElementById('category-select');
 const taskList = document.getElementById('task-list');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-let currentCategory = 'todas';
 
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -16,7 +14,6 @@ taskForm.addEventListener('submit', (e) => {
         date: dateInput.value || null,
         startTime: startTimeInput.value || null,
         endTime: endTimeInput.value || null,
-        category: categorySelect.value,
         completed: false,
     };
     tasks.push(task);
@@ -27,26 +24,25 @@ taskForm.addEventListener('submit', (e) => {
 
 function renderTasks() {
     taskList.innerHTML = '';
-    tasks
-        .filter(task => currentCategory === 'todas' || task.category === currentCategory)
-        .forEach(task => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
-                    ${task.name} 
-                    ${task.date ? `- ${task.date}` : ''} 
-                    ${task.startTime ? `de ${task.startTime}` : ''} 
-                    ${task.endTime ? `a ${task.endTime}` : ''}
-                    [${task.category}]
-                </span>
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
+                ${task.name} 
+                ${task.date ? `- ${task.date}` : ''} 
+                ${task.startTime ? `de ${task.startTime}` : ''} 
+                ${task.endTime ? `a ${task.endTime}` : ''}
+            </span>
+            <div class="button-group">
                 <button onclick="deleteTask(${task.id})">Deletar</button>
                 <button onclick="editTask(${task.id})">Editar</button>
                 <button onclick="completeTask(${task.id})">
                     ${task.completed ? 'Desmarcar' : 'Concluir'}
                 </button>
-            `;
-            taskList.appendChild(li);
-        });
+            </div>
+        `;
+        taskList.appendChild(li);
+    });
 }
 
 function deleteTask(id) {
@@ -61,7 +57,6 @@ function editTask(id) {
     dateInput.value = task.date || '';
     startTimeInput.value = task.startTime || '';
     endTimeInput.value = task.endTime || '';
-    categorySelect.value = task.category;
     deleteTask(id);
 }
 
@@ -76,11 +71,6 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function filterTasks(category) {
-    currentCategory = category;
-    renderTasks();
-}
-
 // Notificações
 setInterval(() => {
     const now = new Date();
@@ -88,44 +78,11 @@ setInterval(() => {
         if (task.endTime && task.date) {
             const endDate = new Date(`${task.date}T${task.endTime}`);
             const timeLeft = endDate - now;
-            if (timeLeft > 0 && timeLeft < 3600000 && !task.completed) { // 1 hora
-                alert(`Falta pouco tempo para você encerrar a tarefa "${task.name}"!`);
+            if (timeLeft > 0 && timeLeft < 3600000 && !task.completed) {
+                alert(`Falta pouco tempo para você iniciar a tarefa "${task.name}"!`);
             }
         }
     });
-}, 60000); // Checa a cada 1 minuto
+}, 60000);
 
 renderTasks();
-
-
-
-
-
-
-
-function renderTasks() {
-    taskList.innerHTML = '';
-    tasks
-        .filter(task => currentCategory === 'todas' || task.category === currentCategory)
-        .forEach(task => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
-                    ${task.name} 
-                    ${task.date ? `- ${task.date}` : ''} 
-                    ${task.startTime ? `de ${task.startTime}` : ''} 
-                    ${task.endTime ? `a ${task.endTime}` : ''}
-                    [${task.category}]
-                </span>
-                <div class="button-group">
-                    <button onclick="deleteTask(${task.id})">Deletar</button>
-                    <button onclick="editTask(${task.id})">Editar</button>
-                    <button onclick="completeTask(${task.id})">
-                        ${task.completed ? 'Desmarcar' : 'Concluir'}
-                    </button>
-                </div>
-            `;
-            taskList.appendChild(li);
-        });
-}
-
