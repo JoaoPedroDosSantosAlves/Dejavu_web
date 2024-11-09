@@ -109,6 +109,7 @@ body {
     padding: 40px;
     background-color: #fff;
     margin-top: 80px;
+    background-color: #EFE7F2;
 }
 
 .content {
@@ -122,9 +123,7 @@ body {
     color: black;
     margin-bottom: 100px;
     line-height: 1.2;
-    margin-left: 550px;
-    flex-direction: column;
-    text-align: center;
+    margin-left: 100px;
 }
 
 .buttons {
@@ -152,6 +151,7 @@ body {
     background-color: #593B7D;
     color: white;
     margin-left: 100px;
+    visibility: hidden;
 }
 
 .primary:hover {
@@ -164,6 +164,7 @@ body {
     background-color: #e0c9f7;
     color: #5d3eaf;
     text-decoration: none;
+    visibility: hidden;
 }
 
 .secondary:hover {
@@ -186,6 +187,8 @@ body {
 }
 
 /*Seção de texto*/
+
+
 
 .section-text {
     display: flex;
@@ -279,7 +282,7 @@ body {
     display: block;
     width: 50px;
     height: 2px;
-    background: black;
+    background: #C8A1E0;
     bottom: 0;
     left: 0;
 }
@@ -381,48 +384,41 @@ section {
     flex: 1;
     padding-left: 20px;
 }
-
-* {
+/*Footer*/
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-.footer-container {
+.footer-container{
     max-width: 1170px;
     margin: auto
 }
-
-.footer-row {
+.footer-row{
     display: flex;
     flex-wrap: wrap;
 }
-
 ul {
     list-style: none;
 }
-
 .footer {
-    background-color: #1C1620;
+    background-color: #1c1620;
     padding: 70px 0;
 }
-
-.footer-col {
+.footer-col{
     width: 25%;
     padding: 0 15px;
 }
-
-.footer-col h4 {
+.footer-col h4{
     font-size: 28px;
-    color: #8E5AA4;
+    color: #593b7d;
     text-transform: capitalize;
     margin-bottom: 35px;
     font-family: var(--font-poppins);
     font-weight: 500;
     position: relative;
 }
-
-.footer-col h4::before {
+.footer-col h4::before{
     content: '';
     position: absolute;
     left: 0;
@@ -432,29 +428,25 @@ ul {
     box-sizing: border-box;
     width: 50px;
 }
-
-.footer-col ul li:not(:last-child) {
+.footer-col ul li:not(:last-child){
     margin-bottom: 10px;
 }
-
-.footer-col ul li a {
+.footer-col ul li a{
     font-family: var(--font-poppins);
     font-size: 16px;
     text-transform: capitalize;
-    color: #ffffff;
+    color: #ffffff; 
     text-decoration: none;
     font-weight: 300;
     display: block;
     margin-left: -30px;
     transition: all 0.3s ease;
 }
-
-.footer-col ul li a:hover {
+.footer-col ul li a:hover{
     color: #ffffff;
     padding-left: 8px;
 }
-
-.footer-col .social-links a {
+.footer-col .social-links a{
     display: inline-block;
     height: 40px;
     width: 40px;
@@ -466,24 +458,35 @@ ul {
     color: #ffffff;
     transition: all 0.5s ease;
 }
-
-.footer-col .social-links a:hover {
+.footer-col .social-links a:hover{
     color: #24262b;
     background-color: #ffffff;
 }
-
-.footer-col ul li p {
+.footer-col ul li p{
     font-family: var(--font-poppins);
     font-size: 16px;
     text-transform: capitalize;
-    color: #ffffff;
+    color: #ffffff; 
     text-decoration: none;
     font-weight: 300;
     display: block;
     margin-left: -30px;
-
+    
 }
 
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
 @media (max-width: 1230px) {
     .title {
         margin-left: 20px;
@@ -536,7 +539,7 @@ ul {
     .title {
         color: black;
         margin-bottom: 30px;
-        margin-top: -40px;
+        margin-top: 110px;
         font-weight: 605;
         line-height: 1.2;
         font-size: 64px;
@@ -673,7 +676,7 @@ ul {
     }
 
     .section-title {
-        font-size: 48px;
+        font-size: 36px;
         margin-left: 10px;
     }
 
@@ -685,5 +688,13 @@ ul {
     .section-image img {
         width: 250px;
         height: auto;
+    }
+    .section-team-title{
+        flex-direction: column;
+        text-align: center;
+    }
+    p {
+        font-size: 16px;
+        margin-left: 10px;
     }
 }

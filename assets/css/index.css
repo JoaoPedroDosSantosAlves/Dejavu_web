@@ -42,7 +42,6 @@ body {
     color: #666777;
     font-weight: 500;
     position: relative;
-    padding-left: 10px;
 }
 
 .nav-link:hover,
@@ -118,7 +117,7 @@ body {
 .logo-img-sidebar {
     margin-right: 20px;
 }
-
+/*Hero Section*/
 .hero-section {
     display: flex;
     justify-content: space-between;
@@ -354,7 +353,7 @@ ul {
     list-style: none;
 }
 .footer {
-    background-color: #1C1620;
+    background-color: #1c1620;
     padding: 70px 0;
 }
 .footer-col{
@@ -363,7 +362,7 @@ ul {
 }
 .footer-col h4{
     font-size: 28px;
-    color: #8E5AA4;
+    color: #593b7d;
     text-transform: capitalize;
     margin-bottom: 35px;
     font-family: var(--font-poppins);
@@ -393,7 +392,6 @@ ul {
     display: block;
     margin-left: -30px;
     transition: all 0.3s ease;
-    margin-bottom: 25px;
 }
 .footer-col ul li a:hover{
     color: #ffffff;
@@ -677,7 +675,7 @@ ul {
         margin-top: -40px;
         font-weight: 605;
         line-height: 1.2;
-        font-size: 42px;
+        font-size: 36px;
         margin-left: 10px;
     }
 
