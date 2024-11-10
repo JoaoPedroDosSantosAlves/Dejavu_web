@@ -27,6 +27,11 @@ function saveTask() {
         const card = document.createElement('div');
         card.classList.add('card');
         
+        // Adiciona um evento de clique no card para redirecionar para a página de lista de tarefas
+        card.addEventListener('click', () => {
+            window.location.href = 'to-do-list.html';
+        });
+        
         // Verificar se uma imagem foi selecionada
         if (taskImage) {
             const img = document.createElement('img');
@@ -44,14 +49,12 @@ function saveTask() {
         const cardTitle = document.createElement('h2');
         cardTitle.classList.add('card-title');
         cardTitle.textContent = taskName;  // Adiciona o nome da tarefa como título
-        
         card.appendChild(cardTitle);  // Adiciona o título ao card
         
         // Criar a descrição do card
         const cardText = document.createElement('p');
         cardText.classList.add('card-text');
         cardText.textContent = 'Ver tarefas ->';  // Texto de exemplo
-        
         card.appendChild(cardText);  // Adiciona o texto ao card
         
         // Botão de deletar
@@ -59,7 +62,8 @@ function saveTask() {
         deleteButton.classList.add('delete-button');
         deleteButton.textContent = 'Deletar';
         
-        deleteButton.addEventListener('click', () => {
+        deleteButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evita que o clique no botão delete redirecione
             card.remove(); // Remove o card ao clicar no botão
         });
         
@@ -81,5 +85,3 @@ function saveTask() {
 addTaskButton.addEventListener('click', openModal);  // Abre o modal ao clicar em "+ Adicionar"
 closeModalButton.addEventListener('click', closeModal);  // Fecha o modal ao clicar no botão "Fechar"
 saveTaskButton.addEventListener('click', saveTask);  // Salva a tarefa ao clicar no botão "Salvar Tarefa"
-
-

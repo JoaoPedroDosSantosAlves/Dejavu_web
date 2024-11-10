@@ -16,12 +16,12 @@
             <button id="logo-main">D</button>
             <div class="menu">
                 <!-- Botão para abrir o modal com ícone + -->
-                <a href="#" id="openModalButton">
+                <!-- <a href="#" id="openModalButton">
                     <button class="nav-button">
                         <i class="fas fa-plus"></i>
                         <span>Cartão</span>
                     </button>
-                </a>
+                </a> -->
 
                 <a href="home.html">
                     <button class="nav-button">
@@ -30,7 +30,7 @@
                     </button>
                 </a>
 
-                <a href="calendar.html"><!--ou-->
+                <a href="calendar.html">
                     <button class="nav-button">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Calendar</span>
@@ -77,9 +77,17 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/home.js"></script> <!-- Adicionei o script home.js -->
+    <script src="assets/js/home.js"></script> <!-- Script home.js -->
     <script src="assets/js/add-card.js"></script>
     <script src="assets/js/sidebar.js"></script>
+
+    <script>
+        // Adiciona funcionalidade de abrir modal ao botão "+ Cartão"
+        document.getElementById('openModalButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Previne comportamento padrão do link
+            openModal(); // Abre o modal
+        });
+    </script>
    
 </body>
 </html>
