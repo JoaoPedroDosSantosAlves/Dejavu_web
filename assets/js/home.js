@@ -127,5 +127,20 @@ function renderTasks() {
             `;
             taskList.appendChild(li);
         });
+
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", function () {
+            window.location.href = "to-do-list.html"; // Redireciona para a página da lista de tarefas
+        });
+    });
+});
+
 

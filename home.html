@@ -11,18 +11,26 @@
 </head>
 <body>
 
-
     <div class="container">
         <div class="sidebar">
             <button id="logo-main">D</button>
             <div class="menu">
+                <!-- Botão para abrir o modal com ícone + -->
+                <a href="#" id="openModalButton">
+                    <button class="nav-button">
+                        <i class="fas fa-plus"></i>
+                        <span>Cartão</span>
+                    </button>
+                </a>
+
                 <a href="home.html">
                     <button class="nav-button">
                         <i class="fas fa-home"></i>
                         <span>Home</span>
                     </button>
                 </a>
-                <a href="calendar.html">
+
+                <a href="calendar.html"><!--ou-->
                     <button class="nav-button">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Calendar</span>
@@ -43,53 +51,16 @@
             </div>
         </div>
 
-
-        <!-- <div class="container">
-            <div class="sidebar">
-                <button id="logo-main">D</button>
-                <div class="menu">
-                    <a href="home.html">
-                        <button class="asdasd"><i class="fas fa-home"></i> Home</button>
-                    </a>
-                    <a href="calendar.html">
-                        <button class="nav-button"><i class="fas fa-calendar-alt"></i> Calendário</button>
-                    </a>
-                    <button class="nav-button"><i class="fas fa-bars"></i> Biblioteca</button>
-                    <a href="index.html">
-                        <button class="nav-button"><i class="fas fa-sign-out-alt"></i> Sair</button>
-                    </a>
-                </div>
-            </div>
-   -->
-        
-   
         <div class="main">
-          
             <h1 class="title">Cartões</h1>
             <div class="add-task-button" id="addTaskButton">+ Adicionar</div>
             <div class="cards-container" id="cardsContainer">
-                <div class="card" data-fixed="true">
-                    <img src="assets/img/figura1.png" alt="Imagem 1">
-                    <h2 class="card-title">Quarto</h2>
-                    <p class="card-text">Ver tarefas -></p>
-                    <button class="delete-button">Deletar</button>
-                </div>
-                <div class="card" data-fixed="true">
-                    <img src="assets/img/figura2.png" alt="Imagem 2">
-                    <h2 class="card-title">Cozinha</h2>
-                    <p class="card-text">Ver tarefas -></p>
-                    <button class="delete-button">Deletar</button>
-                </div>
-                <div class="card" data-fixed="true">
-                    <img src="assets/img/figura3.png" alt="Imagem 3">
-                    <h2 class="card-title">Banheiro</h2>
-                    <p class="card-text">Ver tarefas -></p>
-                    <button class="delete-button">Deletar</button>
-                </div>
+                <!-- Cards aqui -->
             </div>
         </div>
     </div>
 
+    <!-- Modal para adicionar uma nova tarefa -->
     <div class="modal" id="taskModal">
         <div class="modal-content">
             <h2>Adicionar Nova Tarefa</h2>
@@ -100,12 +71,15 @@
         </div>
     </div>
 
-    
+    <!-- Botão de menu lateral -->
     <div class="hamburger" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
     </div>
 
-    <script src="assets/js/teste.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/home.js"></script> <!-- Adicionei o script home.js -->
+    <script src="assets/js/add-card.js"></script>
     <script src="assets/js/sidebar.js"></script>
+   
 </body>
 </html>
