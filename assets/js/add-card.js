@@ -6,16 +6,21 @@ const taskNameInput = document.getElementById('taskName');
 const taskImageInput = document.getElementById('taskImage'); // Input para imagem
 const addTaskButton = document.getElementById('addTaskButton');
 const cardsContainer = document.getElementById('cardsContainer'); // Contêiner de cards
+const confirmationModal = document.getElementById('confirmationModal'); // Modal de confirmação
+const confirmDeleteButton = document.getElementById('confirmDeleteButton'); // Botão de confirmação de deletação
+const cancelDeleteButton = document.getElementById('cancelDeleteButton'); // Botão de cancelamento
+
+let currentCard = null; // Guardar o card atual a ser deletado
 
 // Carregar cards ao carregar a página
 document.addEventListener('DOMContentLoaded', loadCards);
 
-// Função para abrir o modal
+// Função para abrir o modal de tarefas
 function openModal() {
     taskModal.style.display = 'flex';  // Torna o modal visível
 }
 
-// Função para fechar o modal
+// Função para fechar o modal de tarefas
 function closeModal() {
     taskModal.style.display = 'none';  // Torna o modal invisível
 }
@@ -100,8 +105,12 @@ function displayCard(cardData) {
     
     deleteButton.addEventListener('click', (event) => {
         event.stopPropagation(); // Evita que o clique no botão delete redirecione
-        removeCardFromLocalStorage(cardData.name); // Remove o card do localStorage
-        card.remove(); // Remove o card da tela
+        
+        // Armazena o card atual a ser deletado
+        currentCard = cardData;
+
+        // Exibe o modal de confirmação
+        confirmationModal.style.display = 'flex';
     });
     
     card.appendChild(deleteButton);  // Adiciona o botão de deletar ao card
@@ -123,7 +132,29 @@ function removeCardFromLocalStorage(taskName) {
     localStorage.setItem('cards', JSON.stringify(cards));
 }
 
+// Função para fechar o modal de confirmação
+function closeConfirmationModal() {
+    confirmationModal.style.display = 'none';
+}
+
+// Função para confirmar a deletação
+function confirmDeletion() {
+    if (currentCard) {
+        removeCardFromLocalStorage(currentCard.name); // Remove o card do localStorage
+        // Remove o card da tela
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (card.querySelector('.card-title').textContent === currentCard.name) {
+                card.remove();
+            }
+        });
+    }
+    closeConfirmationModal(); // Fecha o modal de confirmação
+}
+
 // Vinculando os eventos de clique
 addTaskButton.addEventListener('click', openModal);  // Abre o modal ao clicar em "+ Adicionar"
 closeModalButton.addEventListener('click', closeModal);  // Fecha o modal ao clicar no botão "Fechar"
 saveTaskButton.addEventListener('click', saveTask);  // Salva a tarefa ao clicar no botão "Salvar Tarefa"
+cancelDeleteButton.addEventListener('click', closeConfirmationModal);  // Fecha o modal de confirmação sem deletar
+confirmDeleteButton.addEventListener('click', confirmDeletion);  // Confirma a deletação do card
