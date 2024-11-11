@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+}
+
+.quiz-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    margin-left: 280px;
+}
+
+h1 {
+    margin-top: 90px;
+    color: #333;
+}
+
+#question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+}
+
+.option {
+    padding: 10px;
+    border: none;
+    background-color: #e1e1f5;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 70%;
+    margin-left: 120px;
+}
+
+/* Hover effect for options */
+.option:hover {
+    background-color: #d4d4ef;
+}
+
+/* Correct answer (green) */
+.correct {
+    background-color: #4CAF50;  /* Green for correct answer */
+    color: white;
+}
+
+/* Incorrect answer (red) */
+.incorrect {
+    background-color: #f44336;  /* Red for incorrect answer */
+    color: white;
+}
+
+/* Option selected state */
+.selected {
+    background-color: #1000a1;
+    color: white;
+}
+
+#submit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background-color: #6b5ce7;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #5747d8;
+}
+
+.hidden {
+    display: none;
+}
+
+#result h2 {
+    color: #333;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Responsividade para telas com largura máxima de 768px */
+@media (max-width: 768px) {
+    /* Ajuste do container do quiz */
+    .quiz-container {
+        margin-left: 0;
+        padding: 15px;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    h1 {
+        margin-top: 120px;
+        font-size: 1.5em; /* Reduz tamanho da fonte do título */
+    }
+
+    #question {
+        font-size: 1em; /* Ajusta o tamanho da fonte da questão */
+    }
+
+    .options {
+        grid-template-columns: 1fr; /* Coloca as opções em uma coluna */
+    }
+
+    .option {
+        width: 100%; /* Faz com que as opções ocupem 100% da largura */
+        margin-left: 0; /* Remove a margem à esquerda */
+        font-size: 0.9em; /* Ajusta o tamanho da fonte */
+        padding: 12px; /* Ajusta o padding para se adequar ao espaço menor */
+    }
+
+    #submit {
+        width: 100%; /* Faz o botão ocupar toda a largura */
+        padding: 12px;
+        font-size: 1.1em; /* Ajusta o tamanho da fonte do botão */
+    }
+}
