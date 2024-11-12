@@ -51,7 +51,7 @@ h1 {
 }
 
 .week-header .calendar-day {
-    background-color: #d2ffd8; 
+    background-color: #bdc5f3; 
     font-weight: normal; 
     height: 25px; 
     flex: 1; 
@@ -61,7 +61,7 @@ h1 {
 }
 
 .calendar-day:hover {
-    background-color: #e6ffe1;
+    background-color: #bdc5f3;
     transform: scale(1.05);
 }
 

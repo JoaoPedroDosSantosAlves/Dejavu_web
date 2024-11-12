@@ -9,8 +9,6 @@ const taskList = document.getElementById('task-list');
 const urlParams = new URLSearchParams(window.location.search);
 const cardId = urlParams.get('id');
 
-
-
 // Função para obter as tarefas específicas do card
 let tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
 let editTaskId = null;
@@ -58,7 +56,63 @@ taskForm.addEventListener('submit', (e) => {
     saveTasks();
     renderTasks();
     taskForm.reset();
+
+    // Verificar e mostrar notificação imediatamente se a tarefa for para o passado
+    checkTaskNotification(task);
+    showNotification(task.name); // Exibe notificação imediata para a nova tarefa
 });
+
+// Função para verificar e exibir notificação para tarefas de datas passadas
+function checkTaskNotification(task) {
+    const now = new Date();
+    if (task.date && task.time) {
+        const taskDateTime = new Date(`${task.date}T${task.time}`);
+        if (now >= taskDateTime && !task.notified) {
+            showNotification(task.name);
+            task.notified = true;
+            saveTasks();
+        }
+    }
+}
+
+// Função para mostrar notificação e tocar som
+function showNotification(taskName) {
+    if (Notification.permission === 'granted') {
+        const notification = new Notification('Lembrete de Tarefa', {
+            body: `Hora de realizar a tarefa: "${taskName}"`,
+            icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
+        });
+
+        alertSound.play().catch(err => {
+            console.error("Erro ao tentar reproduzir o som:", err);
+        });
+
+        setTimeout(() => {
+            notification.close();
+        }, 30000);
+    } else {
+        console.log('Permissão para notificações não concedida.');
+    }
+}
+
+// Função para verificar notificações de tarefas
+function checkNotifications() {
+    const now = new Date();
+
+    tasks.forEach(task => {
+        if (!task.notified && task.date && task.time && !task.completed) {
+            const taskDateTime = new Date(`${task.date}T${task.time}`);
+            if (now >= taskDateTime) {
+                showNotification(task.name);
+                task.notified = true;
+                saveTasks();
+            }
+        }
+    });
+}
+
+// Verificar notificações a cada minuto
+setInterval(checkNotifications, 60000);
 
 // Função para renderizar tarefas
 function renderTasks() {
@@ -69,8 +123,7 @@ function renderTasks() {
             <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
                 ${task.name}
                 ${task.date ? ` - ${task.date}` : ''} 
-                ${task.time ? ` às ${task.time}` : ''}
-            </span>
+                ${task.time ? ` às ${task.time}` : ''}</span>
             <div>
                 <button onclick="deleteTask(${task.id})">Deletar</button>
                 <button onclick="editTask(${task.id})">Editar</button>
@@ -107,47 +160,10 @@ function completeTask(id) {
     renderTasks();
 }
 
-// Função para salvar as tarefas no localStorage com chave única para o card
 function saveTasks() {
     localStorage.setItem(`tasks_${cardId}`, JSON.stringify(tasks));
+    console.log(`Tarefas salvas para o card ${cardId}:`, tasks); // Verifique se as tarefas estão sendo salvas
 }
-
-// Função para mostrar notificação e tocar som
-function showNotification(taskName) {
-    if (Notification.permission === 'granted') {
-        const notification = new Notification('Lembrete de Tarefa', {
-            body: `Hora de realizar a tarefa: "${taskName}"`,
-            icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
-        });
-
-        alertSound.play().catch(err => {
-            console.error("Erro ao tentar reproduzir o som:", err);
-        });
-
-        setTimeout(() => {
-            notification.close();
-        }, 30000);
-    }
-}
-
-// Função para verificar notificações
-function checkNotifications() {
-    const now = new Date();
-
-    tasks.forEach(task => {
-        if (!task.notified && task.date && task.time && !task.completed) {
-            const taskDateTime = new Date(`${task.date}T${task.time}`);
-            if (now >= taskDateTime) {
-                showNotification(task.name);
-                task.notified = true;
-                saveTasks();
-            }
-        }
-    });
-}
-
-// Verificar notificações a cada minuto
-setInterval(checkNotifications, 60000);
 
 // Renderizar tarefas ao carregar a página
 renderTasks();
