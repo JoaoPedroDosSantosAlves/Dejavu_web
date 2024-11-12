@@ -8,6 +8,9 @@ function toggleSidebar() {
     sidebar.classList.toggle('active'); // Alterna a classe 'active'
 }
 
+
+
+
 // Adiciona evento de clique para cada botão na sidebar
 document.querySelectorAll('.sidebar button').forEach(button => {
     button.addEventListener('click', () => {

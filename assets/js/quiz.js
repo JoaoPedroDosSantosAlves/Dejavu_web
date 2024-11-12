@@ -89,6 +89,9 @@ function selectAnswer(index) {
     }, 1000); // 1 segundo de delay antes de ir para a próxima pergunta
 }
 
+
+
+
 function showResult() {
     document.getElementById("quiz").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");

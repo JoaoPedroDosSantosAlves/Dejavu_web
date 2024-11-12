@@ -12,5 +12,8 @@ function nextSlide() {
     showSlide(slideIndex);
 }
 
+
+
+
 setInterval(nextSlide, 3000); // Altere o valor para ajustar o intervalo do slide (em milissegundos)
 showSlide(slideIndex);

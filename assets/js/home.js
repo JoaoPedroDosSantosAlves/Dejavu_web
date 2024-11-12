@@ -8,6 +8,7 @@ const taskList = document.getElementById('task-list');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let currentCategory = 'todas';
 
+// Event listener para adicionar tarefa
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const task = {
@@ -18,6 +19,7 @@ taskForm.addEventListener('submit', (e) => {
         endTime: endTimeInput.value || null,
         category: categorySelect.value,
         completed: false,
+        notified: false,
     };
     tasks.push(task);
     saveTasks();
@@ -25,6 +27,7 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
 });
 
+// Função para renderizar tarefas
 function renderTasks() {
     taskList.innerHTML = '';
     tasks
@@ -39,16 +42,19 @@ function renderTasks() {
                     ${task.endTime ? `a ${task.endTime}` : ''}
                     [${task.category}]
                 </span>
-                <button onclick="deleteTask(${task.id})">Deletar</button>
-                <button onclick="editTask(${task.id})">Editar</button>
-                <button onclick="completeTask(${task.id})">
-                    ${task.completed ? 'Desmarcar' : 'Concluir'}
-                </button>
+                <div class="button-group">
+                    <button onclick="deleteTask(${task.id})">Deletar</button>
+                    <button onclick="editTask(${task.id})">Editar</button>
+                    <button onclick="completeTask(${task.id})">
+                        ${task.completed ? 'Desmarcar' : 'Concluir'}
+                    </button>
+                </div>
             `;
             taskList.appendChild(li);
         });
 }
 
+// Funções para manipular tarefas
 function deleteTask(id) {
     tasks = tasks.filter(task => task.id !== id);
     saveTasks();
@@ -81,58 +87,50 @@ function filterTasks(category) {
     renderTasks();
 }
 
-// Notificações
-setInterval(() => {
-    const now = new Date();
-    tasks.forEach(task => {
-        if (task.endTime && task.date) {
-            const endDate = new Date(`${task.date}T${task.endTime}`);
-            const timeLeft = endDate - now;
-            if (timeLeft > 0 && timeLeft < 3600000 && !task.completed) { // 1 hora
-                alert(`Falta pouco tempo para você encerrar a tarefa "${task.name}"!`);
-            }
-        }
-    });
-}, 60000); // Checa a cada 1 minuto
-
-renderTasks();
-
-
-
-
-
-
-
-function renderTasks() {
-    taskList.innerHTML = '';
-    tasks
-        .filter(task => currentCategory === 'todas' || task.category === currentCategory)
-        .forEach(task => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
-                    ${task.name} 
-                    ${task.date ? `- ${task.date}` : ''} 
-                    ${task.startTime ? `de ${task.startTime}` : ''} 
-                    ${task.endTime ? `a ${task.endTime}` : ''}
-                    [${task.category}]
-                </span>
-                <div class="button-group">
-                    <button onclick="deleteTask(${task.id})">Deletar</button>
-                    <button onclick="editTask(${task.id})">Editar</button>
-                    <button onclick="completeTask(${task.id})">
-                        ${task.completed ? 'Desmarcar' : 'Concluir'}
-                    </button>
-                </div>
-            `;
-            taskList.appendChild(li);
+// Função para mostrar notificação
+function showNotification(taskName) {
+    if (Notification.permission === 'granted') {
+        const notification = new Notification('Nova Tarefa', {
+            body: `Você criou a tarefa "${taskName}"`,
+            icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
         });
-
+        setTimeout(() => {
+            notification.close();
+        }, 30000);
+    }
 }
 
+// Verificar tarefas para notificação
+function checkForNewTasks() {
+    const now = new Date();
+    tasks.forEach(task => {
+        const endDate = task.date && task.endTime ? new Date(`${task.date}T${task.endTime}`) : null;
+        const timeLeft = endDate ? endDate - now : null;
 
+        // Notificar novas tarefas e tarefas próximas do prazo
+        if (!task.notified && !task.completed) {
+            showNotification(task.name);
+            task.notified = true;
+        } else if (timeLeft && timeLeft > 0 && timeLeft < 3600000 && !task.completed) { // 1 hora
+            alert(`Falta pouco tempo para você encerrar a tarefa "${task.name}"!`);
+        }
+    });
 
+    saveTasks();
+}
 
+// Verificar novas tarefas a 30 segundos
+setInterval(checkForNewTasks, 30000);
+
+// Solicitar permissão para notificações ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    if (Notification.permission !== 'granted') {
+        Notification.requestPermission();
+    }
+    renderTasks();
+});
+
+// Redirecionar ao clicar nos cartões
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".card");
 
@@ -142,5 +140,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-
