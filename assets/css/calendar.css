@@ -60,6 +60,11 @@ h1 {
     color: rgb(0, 0, 0);
 }
 
+.ajuste-mes{
+    margin-left: 120px;
+    margin-bottom: 30px;
+}
+
 .calendar-day:hover {
     background-color: #bdc5f3;
     transform: scale(1.05);

@@ -118,6 +118,7 @@ body {
     text-align: center;
     width: fit-content;
     border-radius: 7px;
+    
 }
 
 /* .modal {
@@ -165,6 +166,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     text-align: center;
+    margin-top: 200px;
+    margin-left: 500px;
     width: 300px;
 }
 
@@ -201,6 +204,14 @@ body {
     .add-task-button {
         width: 30%; 
         margin-top: 60px;
+    }
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    
+        width: 300px;
     }
 }
 
