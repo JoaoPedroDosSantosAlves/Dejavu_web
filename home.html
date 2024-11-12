@@ -96,10 +96,15 @@
     <script src="to-do-list.js"></script>
 
     <script>
-        // Adiciona funcionalidade de abrir modal ao botão "+ Cartão"
-        document.getElementById('openModalButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Previne comportamento padrão do link
-            openModal(); // Abre o modal
+        // Abertura do modal para adicionar tarefa
+        document.getElementById('addTaskButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('taskModal').style.display = 'block';
+        });
+
+        // Fechar o modal de adicionar tarefa
+        document.getElementById('closeModalButton').addEventListener('click', function() {
+            document.getElementById('taskModal').style.display = 'none';
         });
     </script>
    

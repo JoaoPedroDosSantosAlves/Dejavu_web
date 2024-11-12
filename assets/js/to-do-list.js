@@ -9,11 +9,7 @@ const taskList = document.getElementById('task-list');
 const urlParams = new URLSearchParams(window.location.search);
 const cardId = urlParams.get('id');
 
-// Se não houver um ID válido, redirecionar para a página inicial (opcional)
-if (!cardId) {
-    alert("ID do card não encontrado.");
-    window.location.href = "index.html";
-}
+
 
 // Função para obter as tarefas específicas do card
 let tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
