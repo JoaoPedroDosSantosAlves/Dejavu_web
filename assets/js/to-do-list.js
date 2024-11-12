@@ -1,14 +1,26 @@
-
+// Selecionar elementos do DOM
 const taskForm = document.getElementById('task-form');
 const taskInput = document.getElementById('task-input');
 const dateInput = document.getElementById('date-input');
 const timeInput = document.getElementById('time-input');
 const taskList = document.getElementById('task-list');
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+// Obter o ID do card da URL
+const urlParams = new URLSearchParams(window.location.search);
+const cardId = urlParams.get('id');
+
+// Se não houver um ID válido, redirecionar para a página inicial (opcional)
+if (!cardId) {
+    alert("ID do card não encontrado.");
+    window.location.href = "index.html";
+}
+
+// Função para obter as tarefas específicas do card
+let tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
 let editTaskId = null;
 
 // Som de alerta
-const alertSound = new Audio('https://www.soundjay.com/button/beep-07.wav'); // Substitua pelo seu próprio som, se desejar
+const alertSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
 
 // Solicitar permissão para notificações
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,18 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Verificar se apenas o nome da tarefa está preenchido
     if (!taskInput.value.trim()) {
         alert("Por favor, insira o nome da tarefa.");
         return;
     }
 
-    // Criar objeto da tarefa com campos opcionais para data e hora
     const task = {
         id: editTaskId || Date.now(),
         name: taskInput.value.trim(),
-        date: dateInput.value ? dateInput.value : null, // Data é opcional
-        time: timeInput.value ? timeInput.value : null, // Hora é opcional
+        date: dateInput.value || null,
+        time: timeInput.value || null,
         notified: false,
         completed: false
     };
@@ -62,7 +72,7 @@ function renderTasks() {
         li.innerHTML = `
             <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
                 ${task.name}
-                ${task.date ? ` - ${task.date}` : ''}
+                ${task.date ? ` - ${task.date}` : ''} 
                 ${task.time ? ` às ${task.time}` : ''}
             </span>
             <div>
@@ -101,26 +111,23 @@ function completeTask(id) {
     renderTasks();
 }
 
-// Função para salvar tarefas no localStorage
+// Função para salvar as tarefas no localStorage com chave única para o card
 function saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem(`tasks_${cardId}`, JSON.stringify(tasks));
 }
 
 // Função para mostrar notificação e tocar som
 function showNotification(taskName) {
-    // Verificar permissão
     if (Notification.permission === 'granted') {
         const notification = new Notification('Lembrete de Tarefa', {
             body: `Hora de realizar a tarefa: "${taskName}"`,
             icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
         });
-        
-        // Tocar som de alerta quando a notificação aparece
+
         alertSound.play().catch(err => {
             console.error("Erro ao tentar reproduzir o som:", err);
         });
 
-        // Fechar notificação após 30 segundos
         setTimeout(() => {
             notification.close();
         }, 30000);
@@ -146,4 +153,5 @@ function checkNotifications() {
 // Verificar notificações a cada minuto
 setInterval(checkNotifications, 60000);
 
+// Renderizar tarefas ao carregar a página
 renderTasks();
