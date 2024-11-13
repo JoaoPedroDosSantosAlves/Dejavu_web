@@ -4,29 +4,12 @@ let currentYear = new Date().getFullYear();
 
 // Obter o cardId da URL
 const urlParams = new URLSearchParams(window.location.search);
-
 const cardId = urlParams.get('id');
-
-// Função para alternar a visibilidade da sidebar
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('active');
-}
-
-// Adiciona evento de clique para cada botão na sidebar
-document.querySelectorAll('.sidebar button').forEach(button => {
-    button.addEventListener('click', () => {
-        document.querySelectorAll('.sidebar button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        button.classList.add('active');
-    });
-});
 
 // Função para renderizar o calendário e as tarefas do mês atual
 function renderCalendar(month = currentMonth, year = currentYear) {
+    // Obter tarefas do localStorage associadas ao card atual
     const tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
-    console.log(`Tarefas carregadas para o card ${cardId}:`, tasks);
 
     const firstDayOfMonth = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -68,7 +51,7 @@ function renderCalendar(month = currentMonth, year = currentYear) {
         // Verifica as tarefas para a data específica
         const dateTasks = tasks.filter(task => task.date === dateStr);
         if (dateTasks.length > 0) {
-            dayElement.style.backgroundColor = '#ADD8E6'; // Azul para indicar tarefas
+            dayElement.style.backgroundColor = '#FFD700'; // Amarelo para indicar tarefas
             dayElement.onclick = () => showTasks(dateTasks); // Exibe as tarefas ao clicar
         }
 
@@ -91,7 +74,7 @@ function changeMonth(direction) {
 function showTasks(tasks) {
     // Gera uma lista formatada de tarefas para o console e o alerta
     const taskListText = tasks.map((task, index) => {
-        return `${index + 1}. ${task.name} ${task.startTime ? `de ${task.startTime}` : ''} ${task.endTime ? `a ${task.endTime}` : ''}`;
+        return `${index + 1}. ${task.name} ${task.time ? `às ${task.time}` : ''}`;
     }).join('\n');
     
     // Mostra a lista de tarefas no console de forma amigável

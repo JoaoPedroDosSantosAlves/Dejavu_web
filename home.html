@@ -99,14 +99,15 @@
         // Abertura do modal para adicionar tarefa
         document.getElementById('addTaskButton').addEventListener('click', function(event) {
             event.preventDefault();
-            document.getElementById('taskModal').style.display = 'block';
+            document.getElementById('taskModal').style.display = 'flex';
         });
-
+    
         // Fechar o modal de adicionar tarefa
         document.getElementById('closeModalButton').addEventListener('click', function() {
             document.getElementById('taskModal').style.display = 'none';
         });
     </script>
+    
    
 </body>
 </html>
