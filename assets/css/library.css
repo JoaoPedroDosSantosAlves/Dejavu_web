@@ -10,7 +10,9 @@ body {
     background-color: #ffffff;
 }
 
-
+li{
+    line-height: 1.8;
+}
 
 .main-content {
     margin-left: 220px; /* Espaço para a sidebar fixa */
