@@ -21,10 +21,11 @@ function renderCalendar(month = currentMonth, year = currentYear) {
     const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
     const header = document.createElement('div');
     header.innerHTML = `
-        <button onclick="changeMonth(-1)">&#8249;</button>
-        <span>${monthNames[month]} ${year}</span>
-        <button onclick="changeMonth(1)">&#8250;</button>
-    `;
+    <button onclick="changeMonth(-1)" style="font-size: 12px; padding: 6px 3px; background-color: transparent; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">&#8249;</button>
+    <span>${monthNames[month]} ${year}</span>
+    <button onclick="changeMonth(1)" style="font-size: 12px; padding: 6px 3px; margin-top:15px; background-color: transparent; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">&#8250;</button>
+`;
+
     calendar.appendChild(header);
 
     const emptyCells = (firstDayOfMonth + 6) % 7;
