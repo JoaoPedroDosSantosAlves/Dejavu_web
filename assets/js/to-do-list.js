@@ -160,10 +160,28 @@ function completeTask(id) {
     renderTasks();
 }
 
+// function saveTasks() {
+//     localStorage.setItem(`tasks_${cardId}`, JSON.stringify(tasks));
+//     console.log(`Tarefas salvas para o card ${cardId}:`, tasks);
+    
+//     // Chama a função de atualização do calendário após salvar as tarefas
+//     if (typeof updateCalendar === 'function') {
+//         updateCalendar();  // Esta função será definida em calendar.js
+//     }
+// }
+
 function saveTasks() {
     localStorage.setItem(`tasks_${cardId}`, JSON.stringify(tasks));
-    console.log(`Tarefas salvas para o card ${cardId}:`, tasks); // Verifique se as tarefas estão sendo salvas
+    console.log(`Tarefas salvas para o card ${cardId}:`, tasks);
+    
+    // Chama a função de atualização do calendário após salvar as tarefas
+    if (typeof updateCalendar === 'function') {
+        updateCalendar();  // Esta função será definida em calendar.js
+    }
 }
+
+
+
 
 // Renderizar tarefas ao carregar a página
 renderTasks();

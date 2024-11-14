@@ -1,14 +1,14 @@
 const calendar = document.getElementById('calendar');
+const taskDetails = document.getElementById('task-details'); // Contêiner para exibir as tarefas do dia
+
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
-// Obter o cardId da URL
 const urlParams = new URLSearchParams(window.location.search);
 const cardId = urlParams.get('id');
 
 // Função para renderizar o calendário e as tarefas do mês atual
 function renderCalendar(month = currentMonth, year = currentYear) {
-    // Obter tarefas do localStorage associadas ao card atual
     const tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
 
     const firstDayOfMonth = new Date(year, month, 1).getDay();
@@ -18,17 +18,15 @@ function renderCalendar(month = currentMonth, year = currentYear) {
 
     calendar.innerHTML = '';
 
-    // Cabeçalho do calendário com o nome do mês e controles de navegação
     const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
     const header = document.createElement('div');
-    header.innerHTML = ` 
+    header.innerHTML = `
         <button onclick="changeMonth(-1)">&#8249;</button>
         <span>${monthNames[month]} ${year}</span>
         <button onclick="changeMonth(1)">&#8250;</button>
     `;
     calendar.appendChild(header);
 
-    // Preenche os dias vazios antes do primeiro dia do mês
     const emptyCells = (firstDayOfMonth + 6) % 7;
     for (let i = 0; i < emptyCells; i++) {
         const emptyCell = document.createElement('div');
@@ -36,26 +34,36 @@ function renderCalendar(month = currentMonth, year = currentYear) {
         calendar.appendChild(emptyCell);
     }
 
-    // Preenche os dias do mês e adiciona eventos de clique para exibir as tarefas
     for (let day = 1; day <= daysInMonth; day++) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const dayElement = document.createElement('div');
         dayElement.className = 'calendar-day';
         dayElement.textContent = day;
 
-        // Destacar o dia atual
         if (dateStr === todayStr) {
-            dayElement.style.backgroundColor = '#ADD8E6'; // Azul claro para hoje
+            dayElement.style.backgroundColor = '#ADD8E6';
         }
 
-        // Verifica as tarefas para a data específica
         const dateTasks = tasks.filter(task => task.date === dateStr);
         if (dateTasks.length > 0) {
-            dayElement.style.backgroundColor = '#FFD700'; // Amarelo para indicar tarefas
-            dayElement.onclick = () => showTasks(dateTasks); // Exibe as tarefas ao clicar
+            dayElement.style.backgroundColor = '#FFD700';
+            dayElement.onclick = () => showTasks(dateTasks);
         }
 
         calendar.appendChild(dayElement);
+    }
+}
+
+// Função para exibir as tarefas no alerta pop-up
+function showTasks(tasks) {
+    let taskList = tasks.map((task, index) => {
+        return `${index + 1}. ${task.name} ${task.time ? `às ${task.time}` : ''}`;
+    }).join('\n');
+
+    if (taskList) {
+        alert(`Tarefas do dia:\n\n${taskList}`);
+    } else {
+        alert("Não há tarefas para este dia.");
     }
 }
 
@@ -71,44 +79,15 @@ function changeMonth(direction) {
     renderCalendar(currentMonth, currentYear);
 }
 
-function showTasks(tasks) {
-    // Gera uma lista formatada de tarefas para o console e o alerta
-    const taskListText = tasks.map((task, index) => {
-        return `${index + 1}. ${task.name} ${task.time ? `às ${task.time}` : ''}`;
-    }).join('\n');
-    
-    // Mostra a lista de tarefas no console de forma amigável
-    console.log(`%cTarefas do dia:\n${taskListText}`, 'color: #2196F3; font-weight: bold; font-size: 20px;');
-    
-    // Exibe o alerta com as tarefas formatadas
-    alert(`Tarefas do dia:\n${taskListText}`);
+// Função para atualizar o calendário após salvar tarefas
+function updateCalendar() {
+    renderCalendar(currentMonth, currentYear);
 }
 
-// Função para mostrar a notificação com as tarefas do dia
-function showNotification(taskList) {
-    if (Notification.permission === 'granted') {
-        const notification = new Notification('Tarefas do dia', {
-            body: taskList,
-            icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
-        });
-        setTimeout(() => {
-            notification.close();
-        }, 30000);
-    } else {
-        console.log('Permissão para notificações não concedida.');
-    }
-}
-
-// Solicita permissão para notificações
 document.addEventListener('DOMContentLoaded', () => {
     if (Notification.permission !== 'granted') {
-        Notification.requestPermission().then(permission => {
-            if (permission !== 'granted') {
-                alert("Por favor, habilite as notificações para receber alertas.");
-            }
-        });
+        Notification.requestPermission();
     }
 });
 
-// Renderiza o calendário ao carregar a página
-renderCalendar();
+renderCalendar();  // Garante que o calendário seja carregado corretamente na primeira vez

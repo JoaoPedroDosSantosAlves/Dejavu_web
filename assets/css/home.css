@@ -46,6 +46,11 @@ body {
     color: rgb(216, 117, 216);
 }
 
+#taskModal, #confirmationModal {
+    display: none;
+}
+
+
 .main {
     margin-left: 170px; 
     padding: 20px;
