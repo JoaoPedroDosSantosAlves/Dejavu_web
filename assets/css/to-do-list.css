@@ -207,19 +207,25 @@ li.task-item.completed .task-name {
     .content {
         flex-direction: column;
     }
+    
+    .container{
+        margin-right: 10px;
+    }
 
     .calendar-button {
-        left: 180px; /* Espaçamento reduzido para melhorar a responsividade */
+        left: 210px; /* Espaçamento reduzido para melhorar a responsividade */
         font-size: 16px;
     }
 
     #task-form {
         width: 100%;
         margin-bottom: 20px;
+        margin-left: -20px;
     }
 
     #task-list {
         max-height: 300px;
+        margin-left: -15px;
     }
 
     li {
