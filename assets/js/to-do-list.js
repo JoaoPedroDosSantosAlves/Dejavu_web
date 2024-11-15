@@ -79,7 +79,7 @@ function checkTaskNotification(task) {
 function showNotification(taskName) {
     if (Notification.permission === 'granted') {
         const notification = new Notification('Lembrete de Tarefa', {
-            body: `Hora de realizar a tarefa: "${taskName}"`,
+            body: `Realizar a tarefa: "${taskName}"`,
             icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
         });
 
