@@ -111,20 +111,54 @@ function checkNotifications() {
     });
 }
 
-// Verificar notificações a cada minuto
 setInterval(checkNotifications, 60000);
 
-// Função para renderizar tarefas
+
+
+
+
+// function renderTasks() {
+//     taskList.innerHTML = '';
+//     tasks.forEach(task => {
+//         const li = document.createElement('li');
+//         li.innerHTML = `
+//             <div class="task-info">
+//                 <div class="task-name">${task.name}</div>
+//                 ${task.date ? `<div class="task-datetime">Data: ${task.date}</div>` : ''}
+//                 ${task.time ? `<div class="task-datetime">Hora: ${task.time}</div>` : ''}
+//             </div>
+//             <div class="button-group">
+//                 <button onclick="deleteTask(${task.id})">Deletar</button>
+//                 <button onclick="editTask(${task.id})">Editar</button>
+//                 <button onclick="completeTask(${task.id})">
+//                     ${task.completed ? 'Desmarcar' : 'Concluir'}
+//                 </button>
+//             </div>
+//         `;
+//         taskList.appendChild(li);
+//     });
+// }
+
+
+
 function renderTasks() {
     taskList.innerHTML = '';
     tasks.forEach(task => {
         const li = document.createElement('li');
+        li.classList.add('task-item'); // Adiciona uma classe base para cada item
+
+        // Adiciona uma classe extra se a tarefa estiver concluída
+        if (task.completed) {
+            li.classList.add('completed');
+        }
+
         li.innerHTML = `
-            <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>
-                ${task.name}
-                ${task.date ? ` - ${task.date}` : ''} 
-                ${task.time ? ` às ${task.time}` : ''}</span>
-            <div>
+            <div class="task-info">
+                <div class="task-name">${task.name}</div>
+                ${task.date ? `<div class="task-datetime">Data: ${task.date}</div>` : ''}
+                ${task.time ? `<div class="task-datetime">Hora: ${task.time}</div>` : ''}
+            </div>
+            <div class="button-group">
                 <button onclick="deleteTask(${task.id})">Deletar</button>
                 <button onclick="editTask(${task.id})">Editar</button>
                 <button onclick="completeTask(${task.id})">
@@ -135,6 +169,7 @@ function renderTasks() {
         taskList.appendChild(li);
     });
 }
+
 
 // Função para deletar tarefa
 function deleteTask(id) {

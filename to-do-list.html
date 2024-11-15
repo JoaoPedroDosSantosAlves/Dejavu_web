@@ -15,14 +15,18 @@
         </button>
         
         <h1>Lista de Tarefas</h1>
-        <form id="task-form">
-            <input type="text" id="task-input" placeholder="Nova tarefa" required>
-            <input type="date" id="date-input" placeholder="Data">
-            <input type="time" id="time-input" placeholder="Hora">
-            <button type="submit">Adicionar</button>
-        </form>
-
-        <ul id="task-list"></ul>
+        <div class="content">
+            <!-- Formulário à esquerda -->
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Nova tarefa" required>
+                <input type="date" id="date-input">
+                <input type="time" id="time-input">
+                <button type="submit">Adicionar</button>
+            </form>
+            
+            <!-- Lista de tarefas à direita -->
+            <ul id="task-list"></ul>
+        </div>
     </div>
     <script src="assets/js/to-do-list.js"></script>
     <script src="assets/js/calendar.js"></script>

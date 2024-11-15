@@ -1,3 +1,4 @@
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -6,7 +7,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 768px;
     margin: auto;
     background: #fff;
     padding: 20px;
@@ -15,18 +16,36 @@ body {
     position: relative;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+h1 {
+    margin-top: 80px;
+    text-align: center;
 }
 
-h1{
-    margin-top: 80px;
+.content {
+    display: flex;
+    gap: 20px; /* Aumentado para dar mais espaço entre o form e a lista */
+    flex-wrap: wrap;
+}
+
+/* Estilos para o formulário */
+#task-form {
+    flex-shrink: 0;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
 }
 
 input {
     margin-bottom: 10px;
     padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
 button {
@@ -36,99 +55,106 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+    margin-top: 10px;
 }
 
+button:hover {
+    background-color: #365c96;
+}
 
-
-ul {
-    list-style-type: none;
+/* Estilos para a lista de tarefas */
+#task-list {
+    flex: 1;
+    max-height: 400px;
+    overflow-y: auto;
     padding: 0;
-}
-
-
-
-
-
-.calendar-day {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    margin: 2px;
-    border: 1px solid #007bff;
+    list-style-type: none;
+    background-color: #f4f4f4;
     border-radius: 5px;
-    line-height: 40px;
-    cursor: pointer;
+    padding-right: 10px;
 }
 
-.calendar-day.empty {
-    border: none;
-}
-
-.calendar-day:hover {
-    background-color: #d4edda;
-}
-
-
-.category-filters {
-    margin-bottom: 20px;
-}
-
-.category-filters button {
-    margin-right: 5px;
-    padding: 10px;
-    background-color: #612f68;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.category-filters button:hover {
-    background-color: #8c1fe6;
-}
-
-
-
+/* Estilos dos itens da lista */
 li {
     background: #e9ecef;
-    margin: 5px 0;
-    padding: 10px;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+    flex-wrap: wrap;
 }
 
-
-
-
-li span {
+/* Contêiner para texto da tarefa */
+.task-info {
     flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
 }
 
-li button {
-    margin-left: 5px;
+.task-name {
+    font-weight: bold;
+}
+
+.task-datetime {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+
+
+/* Estilos dos itens da lista */
+li.task-item {
+    background: #e9efeb;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* Estilo para tarefas concluídas */
+li.task-item.completed .task-name {
+    text-decoration: line-through;
+    color: #777777;
+}
+
+
+
+
+/* Estilos para os botões dentro da lista */
+.button-group {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button-group button {
     padding: 5px 10px;
-    background-color: #1b191b;
+    background-color: #191b19;
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-li button:hover {
-    background-color: #92759b;
+.button-group button:hover {
+    background-color: #80bece;
 }
 
-.button-group {
-    display: flex;
-    gap: 5px; 
-}  
-
-
-
-
+/* Botão de voltar */
 .back-button {
     background: white;
     border: none;
@@ -140,8 +166,33 @@ li button:hover {
     left: 20px;
 }
 
+.back-button:hover {
+    color: #8c1fe6;
+}
 
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
 
-.button-group {
-    display: inline-block;
+    #task-form {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #task-list {
+        max-height: 300px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button-group {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
 }
