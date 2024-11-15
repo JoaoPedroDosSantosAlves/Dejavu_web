@@ -87,6 +87,10 @@ button:hover {
     background-color: #365c96;
 }
 
+.back-button:hover{
+    background-color: transparent;
+}
+
 /* Estilos para a lista de tarefas */
 #task-list {
     flex: 1;
