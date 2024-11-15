@@ -27,6 +27,31 @@ h1 {
     flex-wrap: wrap;
 }
 
+
+
+
+.calendar-button {
+    background: rgb(0, 116, 194);
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    left: 650px; /* Ajuste a distância em relação ao botão de Voltar */
+}
+
+
+.calendar-button:hover {
+    color: #ffffff;
+}
+
+
+
+
+
+
+
 /* Estilos para o formulário */
 #task-form {
     flex-shrink: 0;
@@ -160,20 +185,28 @@ li.task-item.completed .task-name {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #612f68;
+    color: #9b9b9b;
     position: absolute;
     top: 20px;
     left: 20px;
 }
 
 .back-button:hover {
-    color: #8c1fe6;
+    color: gray;
 }
+
+
+
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .content {
         flex-direction: column;
+    }
+
+    .calendar-button {
+        left: 180px; /* Espaçamento reduzido para melhorar a responsividade */
+        font-size: 16px;
     }
 
     #task-form {
