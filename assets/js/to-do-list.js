@@ -18,12 +18,17 @@ const alertSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
 
 // Solicitar permissão para notificações
 document.addEventListener('DOMContentLoaded', () => {
-    if (Notification.permission !== 'granted') {
-        Notification.requestPermission().then(permission => {
-            if (permission !== 'granted') {
-                alert("Por favor, habilite as notificações para receber alertas.");
-            }
-        });
+    // Verifica se o usuário já foi solicitado a habilitar notificações
+    if (localStorage.getItem('notificationPromptShown') !== 'true') {
+        if (Notification.permission !== 'granted') {
+            Notification.requestPermission().then(permission => {
+                if (permission !== 'granted') {
+                    alert("Por favor, habilite as notificações para receber alertas.");
+                }
+                // Marca que a solicitação foi feita
+                localStorage.setItem('notificationPromptShown', 'true');
+            });
+        }
     }
 });
 
