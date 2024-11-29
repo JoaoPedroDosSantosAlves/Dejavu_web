@@ -1,11 +1,11 @@
-const calendar = document.getElementById('calendar'); 
+const calendar = document.getElementById('calendar');
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
 // Função para alternar a visibilidade da sidebar
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('active'); // Alterna a classe 'active'
+    sidebar.classList.toggle('active'); // Alterna a classe 'active' para mostrar/ocultar a sidebar
 }
 
 // Adiciona evento de clique para cada botão na sidebar
@@ -15,7 +15,7 @@ document.querySelectorAll('.sidebar button').forEach(button => {
         document.querySelectorAll('.sidebar button').forEach(btn => {
             btn.classList.remove('active'); // Remove a classe active
         });
-        
+
         // Adiciona a classe 'active' ao botão clicado
         button.classList.add('active'); // Adiciona a classe active
     });

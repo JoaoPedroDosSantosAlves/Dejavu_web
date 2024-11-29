@@ -213,7 +213,7 @@ li.task-item.completed .task-name {
     }
 
     .calendar-button {
-        left: 210px; /* Espaçamento reduzido para melhorar a responsividade */
+        left: 230px; /* Espaçamento reduzido para melhorar a responsividade */
         font-size: 16px;
     }
 

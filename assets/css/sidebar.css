@@ -1,4 +1,4 @@
-body {
+body { 
     margin: 0;
     font-family: sans-serif;
 }
@@ -17,8 +17,6 @@ body {
     margin-top: 10px;
 }
 
-
-
 .sidebar {
     background-color: #ffffff;
     width: 120px;
@@ -33,11 +31,11 @@ body {
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.05);
 }
 
-.menu{
+.menu {
     margin-top: 30px;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
 }
 
@@ -45,8 +43,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-
 
 .sidebar button {
     display: flex;
@@ -65,12 +61,9 @@ body {
     font-size: 22px;
 }
 
-
 .sidebar button.active i {
     color: rgb(143, 143, 143); 
 }
-
-
 
 .sidebar button span {
     font-size: 16px;
@@ -83,18 +76,19 @@ body {
     color: rgb(143, 143, 143);
 }
 
-.logout{
+.logout {
     margin-top: 60px;
 }
 
-/* Estilos para responsividade */
+/* Menu Hambúrguer - oculto por padrão */
 .hamburger {
-display: none; 
-font-size: 30px;
-cursor: pointer;
-position: fixed;
-top: 10px;
-right: 10px;
+    display: none; /* O menu hambúrguer começa oculto em telas grandes */
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
 }
 
 
@@ -111,24 +105,16 @@ right: 10px;
     .menu {
         margin-right: 240px;
         margin-top: 5px;
+        z-index: 1002;
     
     }
     .menu a{
         text-decoration: none;
     }
 
-    .sidebar {
-        width: 100%;
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        max-height: 0; 
-        opacity: 0; 
-        transition: max-height 0.3s ease, opacity 0.3s ease;
-        background-color: white; 
-        z-index: 1000; 
-    }
+   
 
+   
     .sidebar button{
         margin: 10px 0; 
     }
@@ -136,13 +122,8 @@ right: 10px;
     .sidebar.active {
         max-height: 300px; 
         opacity: 1;
-    }
-
-    .hamburger {
-        display: block; 
-        z-index: 1001; 
-        margin-right: 20px;
-        margin-top: 15px;
+        display: flex;
+        z-index: 1001;
     }
 
     .logout{
@@ -153,4 +134,40 @@ right: 10px;
         width: 25%;
         margin-left: 20px;
     }
+    
+    .sidebar {
+        width: 100%; /* A sidebar ocupará toda a largura da tela */
+    }
+
+    /* Exibir o menu hambúrguer em telas pequenas */
+    .hamburger {
+        display: block; /* O menu hambúrguer é exibido apenas em telas pequenas */
+        margin-right: 20px;
+        margin-top: 15px;
+    }
+
+    
+
+    /* Esconde a sidebar e os itens do menu até ativar o hambúrguer */
+    .sidebar {
+        display: none; /* Oculta a sidebar por padrão em telas pequenas */
+    }
+
+
+    .sidebar .menu {
+        opacity: 0; /* Os itens do menu ficam invisíveis até a sidebar ser ativada */
+        pointer-events: none; /* Desabilita a interação com os itens do menu */
+    }
+
+    .sidebar.active .menu {
+        opacity: 1; /* Torna os itens visíveis quando a sidebar é ativada */
+        pointer-events: all; /* Torna os itens interativos quando a sidebar é ativada */
+    }
 }
+
+
+
+
+
+
+
