@@ -47,12 +47,17 @@ function renderCalendar(month = currentMonth, year = currentYear) {
 
         const dateTasks = tasks.filter(task => task.date === dateStr);
         if (dateTasks.length > 0) {
-            dayElement.style.backgroundColor = '#FFD700';
+            dayElement.style.backgroundColor = '#87CEFA';
             dayElement.onclick = () => showTasks(dateTasks);
         }
 
         calendar.appendChild(dayElement);
     }
+}
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
 }
 
 // Função para exibir as tarefas no alerta pop-up

@@ -1,27 +1,28 @@
+/* Estilo para o logo principal */
 #logo-main {
-        color: rgb(216, 117, 216);
-        font-weight: bold;
-        font-size: 38px;
-        text-shadow: 2px 2px 0 rgba(104, 0, 107, 0.5);
-        margin-top: 10px;
-    }
+    color: rgb(216, 117, 216);
+    font-weight: bold;
+    font-size: 38px;
+    text-shadow: 2px 2px 0 rgba(104, 0, 107, 0.5);
+    margin-top: 10px;
+}
 
-   
-
+/* Estilo principal */
 .main {
-        margin-left: 130px; 
-        padding: 50px;
-        flex-grow: 1;
-        overflow-y: auto;
-    }
+    margin-left: 130px;
+    padding: 50px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
 
 h1 {
     margin-top: 0;
     margin-left: 120px;
 }
 
+/* Contêiner do calendário */
 #calendar {
-    margin-top: 20px; 
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
@@ -29,14 +30,16 @@ h1 {
     margin-left: 120px;
 }
 
+/* Cabeçalho das semanas */
 .week-header {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
     width: 70%;
     margin-left: 120px;
 }
 
+/* Estilo padrão dos dias do calendário */
 .calendar-day {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -50,28 +53,51 @@ h1 {
     transition: background-color 0.3s, transform 0.2s;
 }
 
+/* Dias do cabeçalho da semana */
 .week-header .calendar-day {
-    background-color: #bdc5f3; 
-    font-weight: normal; 
-    height: 25px; 
-    flex: 1; 
-    text-align: center; 
+    background-color: #bdc5f3;
+    font-weight: normal;
+    height: 25px;
+    flex: 1;
+    text-align: center;
     margin: 5px 3px;
     color: rgb(0, 0, 0);
 }
 
-.ajuste-mes{
+/* Ajustes para a navegação do mês */
+.ajuste-mes {
     margin-left: 120px;
     margin-bottom: 30px;
 }
 
+/* Hover nos dias do calendário */
 .calendar-day:hover {
     background-color: #bdc5f3;
     transform: scale(1.05);
 }
 
+/* Estilo para dias vazios (fora do mês) */
 .calendar-day.empty {
     background-color: transparent;
+}
+
+
+
+
+#task-details {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#task-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#task-details li {
+    margin: 5px 0;
 }
 
 
@@ -83,10 +109,10 @@ h1 {
 @media (max-width: 768px) {
     .main {
         margin-left: 0;
-        padding: 20px; 
+        padding: 20px;
     }
 
-    h1{
+    h1 {
         margin-top: 120px;
         margin-left: 20px;
         width: 90%;
@@ -100,16 +126,15 @@ h1 {
 
     .calendar-day {
         height: 50px;
-        font-size: 16px; 
-       
+        font-size: 16px;
     }
 
     .week-header .calendar-day {
-        height: 30px; 
-        font-size: 14px; 
-        
+        height: 30px;
+        font-size: 14px;
     }
-    .week-header{
+
+    .week-header {
         margin-left: 20px;
         width: 90%;
     }

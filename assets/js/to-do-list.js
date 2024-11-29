@@ -14,7 +14,7 @@ let tasks = JSON.parse(localStorage.getItem(`tasks_${cardId}`)) || [];
 let editTaskId = null;
 
 // Som de alerta
-const alertSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+const alertSound = new Audio('assets/img/level-up-191997.mp3');
 
 // Solicitar permissão para notificações
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,33 +111,8 @@ function checkNotifications() {
     });
 }
 
-setInterval(checkNotifications, 60000);
+setInterval(checkNotifications, 10000);
 
-
-
-
-
-// function renderTasks() {
-//     taskList.innerHTML = '';
-//     tasks.forEach(task => {
-//         const li = document.createElement('li');
-//         li.innerHTML = `
-//             <div class="task-info">
-//                 <div class="task-name">${task.name}</div>
-//                 ${task.date ? `<div class="task-datetime">Data: ${task.date}</div>` : ''}
-//                 ${task.time ? `<div class="task-datetime">Hora: ${task.time}</div>` : ''}
-//             </div>
-//             <div class="button-group">
-//                 <button onclick="deleteTask(${task.id})">Deletar</button>
-//                 <button onclick="editTask(${task.id})">Editar</button>
-//                 <button onclick="completeTask(${task.id})">
-//                     ${task.completed ? 'Desmarcar' : 'Concluir'}
-//                 </button>
-//             </div>
-//         `;
-//         taskList.appendChild(li);
-//     });
-// }
 
 
 
