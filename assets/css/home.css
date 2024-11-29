@@ -70,7 +70,9 @@ body {
     flex-wrap: wrap;
     cursor: pointer;
     width: 100%;
+    
 }
+
 
 .card {
     background-color: #fff;
