@@ -18,14 +18,12 @@ const alertSound = new Audio('assets/img/level-up-191997.mp3');
 
 // Solicitar permissão para notificações
 document.addEventListener('DOMContentLoaded', () => {
-    // Verifica se o usuário já foi solicitado a habilitar notificações
     if (localStorage.getItem('notificationPromptShown') !== 'true') {
         if (Notification.permission !== 'granted') {
             Notification.requestPermission().then(permission => {
                 if (permission !== 'granted') {
                     alert("Por favor, habilite as notificações para receber alertas.");
                 }
-                // Marca que a solicitação foi feita
                 localStorage.setItem('notificationPromptShown', 'true');
             });
         }
@@ -118,16 +116,20 @@ function checkNotifications() {
 
 setInterval(checkNotifications, 10000);
 
+// Função para formatar a data no formato brasileiro
+function formatDateToBR(dateString) {
+    if (!dateString) return '';
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+}
 
-
-
+// Função para renderizar tarefas na lista
 function renderTasks() {
     taskList.innerHTML = '';
     tasks.forEach(task => {
         const li = document.createElement('li');
-        li.classList.add('task-item'); // Adiciona uma classe base para cada item
+        li.classList.add('task-item');
 
-        // Adiciona uma classe extra se a tarefa estiver concluída
         if (task.completed) {
             li.classList.add('completed');
         }
@@ -135,7 +137,7 @@ function renderTasks() {
         li.innerHTML = `
             <div class="task-info">
                 <div class="task-name">${task.name}</div>
-                ${task.date ? `<div class="task-datetime">Data: ${task.date}</div>` : ''}
+                ${task.date ? `<div class="task-datetime">Data: ${formatDateToBR(task.date)}</div>` : ''}
                 ${task.time ? `<div class="task-datetime">Hora: ${task.time}</div>` : ''}
             </div>
             <div class="button-group">
@@ -149,7 +151,6 @@ function renderTasks() {
         taskList.appendChild(li);
     });
 }
-
 
 // Função para deletar tarefa
 function deleteTask(id) {
@@ -175,17 +176,11 @@ function completeTask(id) {
     renderTasks();
 }
 
-
+// Função para salvar tarefas no localStorage
 function saveTasks() {
     localStorage.setItem(`tasks_${cardId}`, JSON.stringify(tasks));
     console.log(`Tarefas salvas para o card ${cardId}:`, tasks);
-    
-    // Chama a função de atualização do calendário após salvar as tarefas
-    if (typeof updateCalendar === 'function') {
-        updateCalendar();  // Esta função será definida em calendar.js
-    }
 }
-
 
 // Renderizar tarefas ao carregar a página
 renderTasks();
