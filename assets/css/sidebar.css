@@ -15,6 +15,7 @@ body {
     font-size: 38px;
     text-shadow: 2px 2px 0 rgba(104, 0, 107, 0.5);
     margin-top: 10px;
+    
 }
 
 .sidebar {
@@ -99,7 +100,8 @@ body {
     }
 
     #logo-main {
-        margin-right: 325px;
+        margin-right: 230px;
+
     }
 
     .menu {
